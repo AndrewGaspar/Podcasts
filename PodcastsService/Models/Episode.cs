@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace PodcastsService.Models
+namespace Podcasts.Models
 {
     [DataContract]
     public class Episode

@@ -118,9 +118,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PodcastsService\PodcastsService.csproj">
+    <ProjectReference Include="..\PodcastsService\PodcastsShared.csproj">
       <Project>{f0676cb7-f699-42f2-bed8-a09e83cef3bc}</Project>
-      <Name>PodcastsService</Name>
+      <Name>PodcastsShared</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

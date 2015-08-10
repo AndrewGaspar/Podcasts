@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
-using PodcastsService.Messages;
+using Podcasts.Messages;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Media.Playback;
 
-namespace PodcastsService
+namespace Podcasts
 {
     using ServiceReadyHandler = TypedEventHandler<ForeroundMessageTransport, ServiceReadyNotification>;
 

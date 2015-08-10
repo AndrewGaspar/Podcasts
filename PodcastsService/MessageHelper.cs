@@ -1,6 +1,6 @@
 ﻿using Windows.Foundation.Collections;
 
-namespace PodcastsService
+namespace Podcasts
 {
     public static class MessageHelper
     {

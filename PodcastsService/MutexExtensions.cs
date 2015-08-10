@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 
-namespace PodcastsService
+namespace Podcasts
 {
     public static class MutexExtensions
     {

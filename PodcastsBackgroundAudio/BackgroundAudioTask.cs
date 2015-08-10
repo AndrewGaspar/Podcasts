@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
-using PodcastsService;
-using PodcastsService.Messages;
+using Podcasts;
+using Podcasts.Messages;
 using Windows.ApplicationModel.Background;
 using Windows.Media;
 using Windows.Media.Core;

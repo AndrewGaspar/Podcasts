@@ -1,10 +1,10 @@
 ﻿using System;
-using PodcastsService.Messages;
+using Podcasts.Messages;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Media.Playback;
 
-namespace PodcastsService
+namespace Podcasts
 {
     public class BackgroundMessageTransport : MessageTransport
     {

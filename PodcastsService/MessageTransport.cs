@@ -3,7 +3,7 @@ using System.Threading;
 using Windows.Foundation.Collections;
 using Windows.Media.Playback;
 
-namespace PodcastsService
+namespace Podcasts
 {
     public abstract class MessageTransport
     {

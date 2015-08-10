@@ -1,7 +1,7 @@
 ﻿using System.Runtime.Serialization;
-using PodcastsService.Models;
+using Podcasts.Models;
 
-namespace PodcastsService.Messages
+namespace Podcasts.Messages
 {
     [DataContract]
     public class PlayEpisodeRequest
