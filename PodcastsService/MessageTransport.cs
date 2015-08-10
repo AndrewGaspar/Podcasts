@@ -8,8 +8,9 @@ namespace Podcasts
     public abstract class MessageTransport
     {
         public DateTime? LastMessageReceivedUtc { get; private set; } = null;
-        public DateTime? LastMessageReceivedLocalized { get { return LastMessageReceivedUtc?.ToLocalTime(); } }
-        public TimeSpan? TimeSinceLastMessage { get { return LastMessageReceivedUtc.HasValue ? DateTime.UtcNow - LastMessageReceivedUtc : null; } }
+        public DateTime? LastMessageReceivedLocalized => LastMessageReceivedUtc?.ToLocalTime();
+        public TimeSpan? TimeSinceLastMessage 
+            => LastMessageReceivedUtc.HasValue ? DateTime.UtcNow - LastMessageReceivedUtc : null;
 
         protected Mutex Mutex = new Mutex();
         private bool EventHandlersAttached = false;
