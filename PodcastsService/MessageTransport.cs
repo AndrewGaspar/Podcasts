@@ -1,10 +1,44 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using Windows.Foundation.Collections;
 using Windows.Media.Playback;
 
 namespace Podcasts
 {
+    internal class MessageParseHelper
+    {
+
+        private List<Func<ValueSet, bool>> ParseAttempts = new List<Func<ValueSet, bool>>();
+
+        public MessageParseHelper Try<T>(Action<T> action)
+        {
+            ParseAttempts.Add(vs => {
+                T message;
+                if(MessageHelper.TryParseMessage(vs, out message))
+                {
+                    action(message);
+                    return true;
+                }
+
+                return false;
+            });
+
+            return this;
+        }
+
+        public void Invoke(ValueSet vs)
+        {
+            foreach(var attempt in ParseAttempts)
+            {
+                if(attempt(vs))
+                {
+                    return;
+                }
+            }
+        }
+    }
+
     public abstract class MessageTransport
     {
         public DateTime? LastMessageReceivedUtc { get; private set; } = null;

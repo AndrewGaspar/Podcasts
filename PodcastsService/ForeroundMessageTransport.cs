@@ -24,6 +24,15 @@ namespace Podcasts
 
         // Internal events
         private event ServiceReadyHandler ServiceReady;
+
+        private void NotifyServiceReady(ServiceReadyNotification notification)
+        {
+            var ready = ServiceReady;
+            if(ready != null)
+            {
+                ready(this, notification);
+            }
+        }
         
         protected override void AttachEventHandlersInternal()
         {
@@ -64,14 +73,9 @@ namespace Podcasts
 
         protected override void HandleMessage(ValueSet message)
         {
-            {
-                ServiceReadyNotification sr;
-                if (MessageHelper.TryParseMessage(message, out sr))
-                {
-                    if (ServiceReady != null) ServiceReady(this, sr);
-                    return;
-                }
-            }
+            new MessageParseHelper()
+                .Try<ServiceReadyNotification>(NotifyServiceReady)
+                .Invoke(message);
         }
 
         private void Current_CurrentStateChanged(MediaPlayer sender, object args)

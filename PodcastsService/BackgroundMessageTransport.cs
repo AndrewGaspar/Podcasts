@@ -29,6 +29,14 @@ namespace Podcasts
         }
 
         public event TypedEventHandler<BackgroundMessageTransport, PlayEpisodeRequest> OnPlaybackRequested;
+        private void NotifyPlaybackRequested(PlayEpisodeRequest request)
+        {
+            var callback = OnPlaybackRequested;
+            if(callback != null)
+            {
+                callback(this, request);
+            }
+        }
 
         protected override void SendMessageRaw(ValueSet message) => 
             BackgroundMediaPlayer.SendMessageToForeground(message);
@@ -50,23 +58,10 @@ namespace Podcasts
 
         protected override void HandleMessage(ValueSet message)
         {
-            {
-                ServiceReadyRequest request;
-                if(MessageHelper.TryParseMessage(message, out request))
-                {
-                    OnServiceReady();
-                    return;
-                }
-            }
-
-            {
-                PlayEpisodeRequest request;
-                if(MessageHelper.TryParseMessage(message, out request))
-                {
-                    OnPlaybackRequested(this, request);
-                    return;
-                }
-            }
+            new MessageParseHelper()
+                .Try<ServiceReadyRequest>(_ => OnServiceReady())
+                .Try<PlayEpisodeRequest>(NotifyPlaybackRequested)
+                .Invoke(message);
         }
     }
 }
