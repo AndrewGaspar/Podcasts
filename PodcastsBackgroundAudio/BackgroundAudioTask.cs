@@ -30,7 +30,7 @@ namespace PodcastsBackground
 
             BackgroundMediaPlayer.Current.CurrentStateChanged += MediaPlayerStateChanged;
 
-            messageTransport.OnPlaybackRequested += OnPlaybackRequested;
+            messageTransport.PlaybackRequested += OnPlaybackRequested;
 
             messageTransport.Start();
             messageTransport.NotifyForeground();

@@ -28,10 +28,10 @@ namespace Podcasts
             SendMessage(new ServiceReadyNotification());
         }
 
-        public event TypedEventHandler<BackgroundMessageTransport, PlayEpisodeRequest> OnPlaybackRequested;
+        public event TypedEventHandler<BackgroundMessageTransport, PlayEpisodeRequest> PlaybackRequested;
         private void NotifyPlaybackRequested(PlayEpisodeRequest request)
         {
-            var callback = OnPlaybackRequested;
+            var callback = PlaybackRequested;
             if(callback != null)
             {
                 callback(this, request);
