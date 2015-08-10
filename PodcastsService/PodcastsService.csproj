@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2E903825-3306-4974-A344-FB7BD33977E9}</ProjectGuid>
-    <OutputType>winmdobj</OutputType>
+    <ProjectGuid>{F0676CB7-F699-42F2-BED8-A09E83CEF3BC}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PodcastsBackground</RootNamespace>
-    <AssemblyName>PodcastsBackground</AssemblyName>
+    <RootNamespace>PodcastsService</RootNamespace>
+    <AssemblyName>PodcastsService</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>
@@ -16,7 +16,6 @@
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <AllowCrossPlatformRetargeting>false</AllowCrossPlatformRetargeting>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -114,14 +113,19 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BackgroundAudioTask.cs" />
+    <Compile Include="BackgroundMessageTransport.cs" />
+    <Compile Include="ForeroundMessageTransport.cs" />
+    <Compile Include="JsonHelper.cs" />
+    <Compile Include="MessageHelper.cs" />
+    <Compile Include="Messages\PlayEpisodeRequest.cs" />
+    <Compile Include="MessageTransport.cs" />
+    <Compile Include="Messages\ServiceReadyRequest.cs" />
+    <Compile Include="Messages\ServiceReadyNotification.cs" />
+    <Compile Include="Models\Episode.cs" />
+    <Compile Include="Models\Podcast.cs" />
+    <Compile Include="MutexExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\PodcastsService\PodcastsService.csproj">
-      <Project>{f0676cb7-f699-42f2-bed8-a09e83cef3bc}</Project>
-      <Name>PodcastsService</Name>
-    </ProjectReference>
+    <Content Include="Properties\PodcastsService.rd.xml" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

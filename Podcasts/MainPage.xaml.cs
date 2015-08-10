@@ -5,9 +5,12 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading;
 using System.Threading.Tasks;
+using PodcastsService.Messages;
+using PodcastsService.Models;
 using Windows.Data.Xml.Dom;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Gaming.Input;
 using Windows.Media.Playback;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
@@ -29,18 +32,19 @@ namespace Podcasts
     public sealed partial class MainPage : Page
     {
         private AutoResetEvent backgroundAudioTaskStarted = new AutoResetEvent(false);
+        private App PodcastsApp => (App)Application.Current;
 
         public MainPage()
         {
             this.InitializeComponent();
-
+            
             LoadPodcast();
         }
 
         public async void LoadPodcast()
         {
             var document = await XmlDocument.LoadFromUriAsync(new Uri("http://www.giantbomb.com/podcast-xml/giant-bombcast/"));
-
+            
             var title = document.SelectNodes("/rss/channel/title").First();
 
             CurrentPodcastName.Text = title.InnerText;
@@ -48,51 +52,32 @@ namespace Podcasts
             var firstItem = document.SelectSingleNode("/rss/channel/item");
 
             var enclosure = firstItem.SelectSingleNode("enclosure");
-            var urlItem = enclosure.Attributes.GetNamedItem("url").InnerText;
+            var itunesImage = firstItem.ChildNodes.First(node => node.NodeName == "itunes:image");
+            
 
+            var episodeTitle = firstItem.SelectSingleNode("title").InnerText;
+            var location = new Uri(enclosure.Attributes.GetNamedItem("url").InnerText);
+
+            var nodes = firstItem.ChildNodes.ToList();
+
+            var image = new Uri(itunesImage.Attributes.GetNamedItem("href").InnerText);
+
+            var episode = new Episode()
+            {
+                Title = episodeTitle,
+                Location = location,
+                Image = image,
+                PodcastName = title.InnerText,
+            };
+            
             if (MediaPlayerState.Closed == BackgroundMediaPlayer.Current.CurrentState)
             {
-                await StartBackgroundAudioTask();
+                await PodcastsApp.MessageService.PingServiceAsync();
             }
 
-            BackgroundMediaPlayer.SendMessageToBackground(new ValueSet() {["podcast"] = urlItem });
+            PodcastsApp.MessageService.RequestPlayback(new PlayEpisodeRequest { Episode = episode });
         }
-
-        private void AddMediaPlayerEventHandlers()
-        {
-            BackgroundMediaPlayer.Current.CurrentStateChanged += Current_CurrentStateChanged;
-            BackgroundMediaPlayer.MessageReceivedFromBackground += BackgroundMediaPlayer_MessageReceivedFromBackground;
-        }
-
-        private async Task StartBackgroundAudioTask()
-        {
-            AddMediaPlayerEventHandlers();
-
-            var tcs = new TaskCompletionSource<int>();
-            
-            var startResult = Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
-            {
-                var result = backgroundAudioTaskStarted.WaitOne(10000);
-                if(result)
-                {
-                    tcs.SetResult(0);
-                }
-                else
-                {
-                    tcs.SetException(new Exception("Background Audio Task didn't start"));
-                }
-            });
-
-            await tcs.Task;
-
-
-        }
-
-        private void BackgroundMediaPlayer_MessageReceivedFromBackground(object sender, MediaPlayerDataReceivedEventArgs e)
-        {
-            backgroundAudioTaskStarted.Set();
-        }
-
+        
         private void Current_CurrentStateChanged(MediaPlayer sender, object args)
         {
             //throw new NotImplementedException();

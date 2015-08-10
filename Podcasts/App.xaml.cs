@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using PodcastsService;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
@@ -22,6 +23,8 @@ namespace Podcasts
     /// </summary>
     sealed partial class App : Application
     {
+        public ForeroundMessageTransport MessageService = new ForeroundMessageTransport();
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -77,6 +80,9 @@ namespace Podcasts
                 // parameter
                 rootFrame.Navigate(typeof(MainPage), e.Arguments);
             }
+
+            MessageService.Start();
+            
             // Ensure the current window is active
             Window.Current.Activate();
         }
@@ -101,7 +107,7 @@ namespace Podcasts
         private void OnSuspending(object sender, SuspendingEventArgs e)
         {
             var deferral = e.SuspendingOperation.GetDeferral();
-            //TODO: Save application state and stop any background activity
+            MessageService.Stop();
             deferral.Complete();
         }
     }
