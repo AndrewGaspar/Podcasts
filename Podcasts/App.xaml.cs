@@ -24,6 +24,7 @@ namespace Podcasts
     sealed partial class App : Application
     {
         public ForeroundMessageTransport MessageService = new ForeroundMessageTransport();
+        public DataStore DataStore = new DataStore();
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code

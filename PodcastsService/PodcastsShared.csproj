@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BackgroundMessageTransport.cs" />
+    <Compile Include="DataStore.cs" />
     <Compile Include="ForeroundMessageTransport.cs" />
     <Compile Include="JsonHelper.cs" />
     <Compile Include="MessageHelper.cs" />

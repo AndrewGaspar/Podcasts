@@ -38,44 +38,13 @@ namespace Podcasts
         {
             this.InitializeComponent();
             
-            LoadPodcast();
+            //LoadPodcast();
         }
 
         public async void LoadPodcast()
         {
             var document = await XmlDocument.LoadFromUriAsync(new Uri("http://www.giantbomb.com/podcast-xml/giant-bombcast/"));
             
-            var title = document.SelectNodes("/rss/channel/title").First();
-
-            CurrentPodcastName.Text = title.InnerText;
-
-            var firstItem = document.SelectSingleNode("/rss/channel/item");
-
-            var enclosure = firstItem.SelectSingleNode("enclosure");
-            var itunesImage = firstItem.ChildNodes.First(node => node.NodeName == "itunes:image");
-            
-
-            var episodeTitle = firstItem.SelectSingleNode("title").InnerText;
-            var location = new Uri(enclosure.Attributes.GetNamedItem("url").InnerText);
-
-            var nodes = firstItem.ChildNodes.ToList();
-
-            var image = new Uri(itunesImage.Attributes.GetNamedItem("href").InnerText);
-
-            var episode = new Episode()
-            {
-                Title = episodeTitle,
-                Location = location,
-                Image = image,
-                PodcastName = title.InnerText,
-            };
-            
-            if (MediaPlayerState.Closed == BackgroundMediaPlayer.Current.CurrentState)
-            {
-                await PodcastsApp.MessageService.PingServiceAsync();
-            }
-
-            PodcastsApp.MessageService.RequestPlayback(new PlayEpisodeRequest { Episode = episode });
         }
         
         private void Current_CurrentStateChanged(MediaPlayer sender, object args)
@@ -86,6 +55,51 @@ namespace Podcasts
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MainSplitView.IsPaneOpen = !MainSplitView.IsPaneOpen;
+        }
+
+        private async void AddPodcastButton_Click(object sender, RoutedEventArgs e)
+        {
+            Uri location;
+            if(Uri.TryCreate(AddPodcastUrl.Text, UriKind.Absolute, out location))
+            {
+                await AddPodcastAsync(location);
+            }
+        }
+        
+        private async Task AddPodcastAsync(Uri url)
+        {
+            var document = await XmlDocument.LoadFromUriAsync(url);
+
+            var title = document.SelectNodes("/rss/channel/title").First();
+
+            CurrentPodcastName.Text = title.InnerText;
+
+            var firstItem = document.SelectSingleNode("/rss/channel/item");
+
+            var enclosure = firstItem.SelectSingleNode("enclosure");
+            var itunesImage = firstItem.ChildNodes.FirstOrDefault(node => node.NodeName == "itunes:image");
+            
+            var episodeTitle = firstItem.SelectSingleNode("title").InnerText;
+            var location = new Uri(enclosure.Attributes.GetNamedItem("url").InnerText);
+
+            var nodes = firstItem.ChildNodes.ToList();
+
+            var image = itunesImage == null ? null : new Uri(itunesImage.Attributes.GetNamedItem("href").InnerText);
+
+            var episode = new Episode()
+            {
+                Title = episodeTitle,
+                Location = location,
+                Image = image,
+                PodcastName = title.InnerText,
+            };
+
+            if (MediaPlayerState.Closed == BackgroundMediaPlayer.Current.CurrentState)
+            {
+                await PodcastsApp.MessageService.PingServiceAsync();
+            }
+
+            PodcastsApp.MessageService.RequestPlayback(new PlayEpisodeRequest { Episode = episode });
         }
     }
 }

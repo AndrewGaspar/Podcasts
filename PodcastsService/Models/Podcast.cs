@@ -1,12 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace Podcasts.Models
 {
-    class Podcast
+    [DataContract]
+    public class Podcast
     {
+        [DataMember]
+        public string Title { get; set; }
+
+        [DataMember]
+        public Uri Location { get; set; }
+
+        [DataMember]
+        public Uri Image { get; set; }
     }
 }

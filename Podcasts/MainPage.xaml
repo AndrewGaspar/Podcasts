@@ -20,7 +20,10 @@
                 </StackPanel>
             </SplitView.Pane>
             <SplitView.Content>
-                <Button>Click me</Button>
+                <StackPanel>
+                    <TextBox x:Name="AddPodcastUrl" InputScope="Url" HorizontalAlignment="Left" Height="32" TextWrapping="NoWrap" VerticalAlignment="Top" Width="166"/>
+                    <Button x:Name="AddPodcastButton" Click="AddPodcastButton_Click">Add</Button>
+                </StackPanel>
             </SplitView.Content>
         </SplitView>
     </RelativePanel>
