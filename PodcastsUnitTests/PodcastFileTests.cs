@@ -60,10 +60,8 @@ namespace PodcastsUnitTests
         private Uri GetRandomUrl(Random random, string end)
         {
             Func<int, string> rs = up => GetRandomString(random, 3, up);
-
-            var url = string.Format($"http://{rs(3)}.{rs(7)}.{rs(3)}/{end}");
-
-            return new Uri(url);
+            
+            return new Uri($"http://{rs(3)}.{rs(7)}.{rs(3)}/{end}");
 
         }
 
@@ -78,8 +76,11 @@ namespace PodcastsUnitTests
                 {
                     Title = GetRandomString(random),
                     Location = GetRandomUrl(random, "podcast.xml"),
-                    Image = GetRandomUrl(random, "album.png"),
                 };
+
+                // only set Image sometimes
+                if (random.NextDouble() > 0.5)
+                    podcast.Image = GetRandomUrl(random, "album.png");
 
                 await file.AddPodcastAsync(podcast);
 
