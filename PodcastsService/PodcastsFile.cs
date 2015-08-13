@@ -20,7 +20,7 @@ namespace Podcasts
         {
             var newPodcast = new Podcast(obj);
 
-            if(newPodcast.Id == null)
+            if(newPodcast.Id == Guid.Empty)
             {
                 newPodcast.Id = Guid.NewGuid();
             }
@@ -33,6 +33,8 @@ namespace Podcasts
             original.Id = addedObject.Id;
         }
 
-        public Task RemovePodcastAsync(Guid id) => RemoveMatchingObjectsAsync(podcast => podcast.Id == id);
+        public Task RemovePodcastAsync(Podcast podcast) => RemoveObjectAsync(podcast);
+
+        public Task RemovePodcastAsync(Guid id) => RemovePodcastAsync(new Podcast { Id = id });
     }
 }

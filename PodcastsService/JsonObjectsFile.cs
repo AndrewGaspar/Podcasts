@@ -9,9 +9,9 @@ using System.Linq;
 
 namespace Podcasts
 {
-    public class JsonObjectsFile<T>
+    public abstract class JsonObjectsFile<T> where T : IComparable<T>
     {
-        private static JsonSerializer<List<T>> Serializer = new JsonSerializer<List<T>>();
+        private static JsonSerializer<SortedSet<T>> Serializer = new JsonSerializer<SortedSet<T>>();
 
         private AsyncMutex AsyncMutex = new AsyncMutex();
 
@@ -61,15 +61,15 @@ namespace Podcasts
             {
                 using (var readStream = await file.OpenReadAsync().AsTask().ConfigureAwait(false))
                 {
-                    return BlockingReadObjectsFromStream(readStream);
+                    return BlockingReadObjectsFromStream(readStream).ToList();
                 }
             }).ConfigureAwait(false);
 
-        private List<T> BlockingReadObjectsFromStream(IRandomAccessStream readStream)
+        private SortedSet<T> BlockingReadObjectsFromStream(IRandomAccessStream readStream)
         {
             if (readStream.Size == 0)
             {
-                return new List<T>();
+                return new SortedSet<T>();
             }
 
             using (var inputStream = readStream.GetInputStreamAt(0))
@@ -77,7 +77,7 @@ namespace Podcasts
                 return Serializer.ReadJson(classicStream);
         }
 
-        private void BlockingWriteObjectsToStream(IRandomAccessStream writeStream, List<T> objects)
+        private void BlockingWriteObjectsToStream(IRandomAccessStream writeStream, SortedSet<T> objects)
         {
             // does not own the stream object
             var classicStream = writeStream.AsStreamForWrite();
@@ -91,9 +91,9 @@ namespace Podcasts
         private static Task<IRandomAccessStream> OpenFileReadWriteAsync(StorageFile file) =>
             file.OpenAsync(FileAccessMode.ReadWrite).AsTask();
 
-        private Task ModifyObjectsAsync(Predicate<List<T>> manipulation) => ModifyObjectsAsync(manipulation, () => { });
+        private Task ModifyObjectsAsync(Predicate<SortedSet<T>> manipulation) => ModifyObjectsAsync(manipulation, () => { });
 
-        private Task ModifyObjectsAsync(Predicate<List<T>> manipulation, Action onSuccess) =>
+        private Task ModifyObjectsAsync(Predicate<SortedSet<T>> manipulation, Action onSuccess) =>
             UseFileAsync(async file =>
             {
                 using (var writeStream = await OpenFileReadWriteAsync(file).ConfigureAwait(false))
@@ -149,7 +149,10 @@ namespace Podcasts
             {
                 var startingSize = objects.Count;
 
-                objects.AddRange(pairs.Select(pair => pair.Prepared));
+                foreach (var pair in pairs)
+                {
+                    objects.Add(pair.Prepared);
+                }
 
                 return objects.Count > startingSize;
             },
@@ -163,7 +166,13 @@ namespace Podcasts
             }).ConfigureAwait(false);
         }
 
-        public Task RemoveMatchingObjectsAsync(Predicate<T> test) =>
-            ModifyObjectsAsync(objects => objects.RemoveAll(test) != 0);
+        public Task RemoveObjectAsync(T obj) => ModifyObjectsAsync(objects => objects.Remove(obj));
+
+        public Task RemoveMatchingObjectsAsync(IEnumerable<T> items) =>
+            ModifyObjectsAsync(objects => 
+                items.Aggregate(false, (change, item) => change || objects.Remove(item)));
+
+        public Task RemoveObjectsWhereAsync(Predicate<T> test) =>
+            ModifyObjectsAsync(objects => objects.RemoveWhere(test) != 0);
     }
 }

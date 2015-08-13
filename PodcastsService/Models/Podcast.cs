@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Podcasts.Models
 {
     [DataContract]
-    public class Podcast
+    public class Podcast : IComparable<Podcast>
     {
         public Podcast()
         {
@@ -20,7 +20,7 @@ namespace Podcasts.Models
         }
 
         [DataMember(IsRequired = true)]
-        public Guid? Id { get; set; }
+        public Guid Id { get; set; }
 
         [DataMember(IsRequired = true)]
         public string Title { get; set; }
@@ -35,12 +35,17 @@ namespace Podcasts.Models
 
         public bool Equals(Podcast obj)
         {
-            if(obj == null)
-            {
-                return false;
-            }
+            return Id.Equals(obj.Id);
+        }
 
-            return Id == obj.Id && Title == obj.Title && Location == obj.Location && Image == obj.Image;
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
+
+        public int CompareTo(Podcast other)
+        {
+            return Id.CompareTo(other.Id);
         }
     }
 }

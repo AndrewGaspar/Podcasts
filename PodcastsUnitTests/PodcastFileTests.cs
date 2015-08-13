@@ -25,24 +25,26 @@ namespace PodcastsUnitTests
             const string title = "My Great Podcast";
             var location = new Uri("http://www.newssite.net/our-podcast");
             var image = new Uri("http://www.newssite-cdn.net/picture.jpg");
-            
 
-            await PodcastsFile.AddPodcastAsync(new Podcast
+            var podcast = new Podcast
             {
                 Title = title,
                 Location = location,
                 Image = image
-            });
+            };
+
+            await PodcastsFile.AddPodcastAsync(podcast);
 
             var podcasts = await PodcastsFile.ReadPodcastsAsync();
 
             Assert.AreEqual(1, podcasts.Count);
 
-            var podcast = podcasts[0];
+            var deserializedPodcast = podcasts[0];
 
-            Assert.AreEqual(podcast.Title, title);
-            Assert.AreEqual(podcast.Location, location);
-            Assert.AreEqual(podcast.Image, image);
+            Assert.AreEqual(podcast.Id, deserializedPodcast.Id);
+            Assert.AreEqual(podcast.Title, deserializedPodcast.Title);
+            Assert.AreEqual(podcast.Location, deserializedPodcast.Location);
+            Assert.AreEqual(podcast.Image, deserializedPodcast.Image);
         }
 
         private IEnumerable<char> GetRandomChars(Random r, int numChars)
@@ -62,7 +64,7 @@ namespace PodcastsUnitTests
             var url = string.Format($"http://{rs(3)}.{rs(7)}.{rs(3)}/{end}");
 
             return new Uri(url);
-            
+
         }
 
         private async Task<List<Podcast>> AddPodcastsSeriallyAsync(PodcastsFile file, int numPodcasts)
@@ -70,7 +72,7 @@ namespace PodcastsUnitTests
             var podcasts = new List<Podcast>();
             var random = new Random();
 
-            foreach(var i in Enumerable.Range(0, numPodcasts))
+            foreach (var i in Enumerable.Range(0, numPodcasts))
             {
                 var podcast = new Podcast
                 {
@@ -102,7 +104,7 @@ namespace PodcastsUnitTests
             Predicate<Podcast> removeThesePodcasts = podcast => fivePodcasts.Any(thisPodcast => thisPodcast.Id == podcast.Id);
 
             podcasts.RemoveAll(removeThesePodcasts);
-            await PodcastsFile.RemoveMatchingObjectsAsync(removeThesePodcasts);
+            await PodcastsFile.RemoveMatchingObjectsAsync(fivePodcasts);
 
             var writtenPodcasts = await PodcastsFile.ReadPodcastsAsync();
 
@@ -114,7 +116,7 @@ namespace PodcastsUnitTests
         {
             var tasks = new List<Task<List<Podcast>>>();
 
-            for(var i = 0; i < 4; i++)
+            for (var i = 0; i < 4; i++)
             {
                 tasks.Add(Task.Run(() => AddPodcastsSeriallyAsync(PodcastsFile, 50)));
             }
@@ -132,7 +134,7 @@ namespace PodcastsUnitTests
         {
             var randomPodcasts = await AddPodcastsSeriallyAsync(PodcastsFile, 250);
             var writtenPodcasts = await PodcastsFile.ReadPodcastsAsync();
-            
+
             AssertPodcastListsAreIdentical(randomPodcasts, writtenPodcasts);
         }
     }
