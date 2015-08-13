@@ -31,7 +31,6 @@ namespace Podcasts
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private AutoResetEvent backgroundAudioTaskStarted = new AutoResetEvent(false);
         private App PodcastsApp => (App)Application.Current;
 
         public MainPage()
