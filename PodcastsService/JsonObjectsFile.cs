@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.Storage.Streams;
 using System.Linq;
+using System.Threading;
 
 namespace Podcasts
 {
@@ -13,7 +14,7 @@ namespace Podcasts
     {
         private static JsonSerializer<SortedSet<T>> Serializer = new JsonSerializer<SortedSet<T>>();
 
-        private AsyncMutex AsyncMutex = new AsyncMutex();
+        private SemaphoreSlim AsyncMutex = new SemaphoreSlim(1);
 
         public string DatabaseFileName { get; private set; }
 
