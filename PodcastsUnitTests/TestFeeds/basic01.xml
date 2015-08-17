@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+
+<rss version="2.0">
+    <channel>
+        <title>A Basic RSS Feed</title>
+        <description>This is a super simple RSS feed</description>
+        <link>http://www.basicsite.com</link>
+        <pubDate>Sat, 07 Sep 2002 00:00:01 GMT</pubDate>
+    </channel>
+</rss>

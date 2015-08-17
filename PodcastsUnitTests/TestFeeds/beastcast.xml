@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:media="http://search.yahoo.com/mrss/">
+    <channel xmlns:atom="http://www.w3.org/2005/Atom" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:media="http://search.yahoo.com/mrss/">
+        <title>The Giant Beastcast</title>
+        <description>The Giant Bomb East team gathers to talk about the week in video games, their lives, and basically anything that interests them. All from New York City!</description>
+        <link>http://www.giantbomb.com</link>
+        <copyright>2015 CBS Interactive</copyright>
+        <language>en-us</language>
+        <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2750982-beastcast_itunes.png"/>
+        <itunes:subtitle xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">The Giant Bomb East team gathers to talk about the week in video games, their lives, and basically anything that interests them. All from New York City!</itunes:subtitle>
+        <itunes:author xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">Giant Bomb</itunes:author>
+        <itunes:summary xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">The Giant Bomb East team gathers to talk about the week in video games, their lives, and basically anything that interests them. All from New York City!</itunes:summary>
+        <atom:link href="http://www.giantbomb.com" rel="self" type="application/rss+xml" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        <itunes:owner xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+            <itunes:name>Giant Bomb</itunes:name>
+            <itunes:email>beastcast@giantbomb.com</itunes:email>
+        </itunes:owner>
+        <itunes:category text="Games &amp; Hobbies" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+            <itunes:category text="Video Games"/>
+        </itunes:category>
+        <itunes:category text="Technology" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+            <itunes:category text="Gadgets"/>
+        </itunes:category>
+        <itunes:category text="Games &amp; Hobbies" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+            <itunes:category text="Other Games"/>
+        </itunes:category>
+        <itunes:explicit xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">no</itunes:explicit>
+        <image>
+            <title>The Giant Beastcast</title>
+            <url>http://static.giantbomb.com/uploads/original/0/31/2750982-beastcast_itunes.png</url>
+            <link>http://www.giantbomb.com</link>
+            <width>144</width>
+            <height>144</height>
+        </image>
+        <itunes:keywords xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">GiantBomb, Giant Bomb, Vinny Caravella, Alex Navarro, video games, PS4, WiiU, Xbox One, PC, PS Vita, 3DS</itunes:keywords>
+        <media:copyright xmlns:media="http://search.yahoo.com/mrss/">2015 CBS Interactive</media:copyright>
+        <media:thumbnail url="http://static.giantbomb.com/uploads/original/0/31/2750982-beastcast_itunes.png" xmlns:media="http://search.yahoo.com/mrss/"/>
+        <media:category scheme="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:media="http://search.yahoo.com/mrss/">Games &amp; Hobbies/Other Games</media:category>
+        <media:category scheme="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:media="http://search.yahoo.com/mrss/">Technology/Gadgets</media:category>
+        <item>
+            <title>The Giant Beastcast: Episode 10</title>
+            <link>http://www.giantbomb.com/podcasts/the-giant-beastcast-episode-10/1600-1301/</link>
+            <description>Windows 10 is out just in time for our tenth episode so let's talk about it! We also have more updates on Splatoon, Rocket League, and Halo 5: Guardians. And remember the Ouya? Remember Dragon Quest? Remember shorter podcasts?</description>
+            <pubDate>Fri, 31 Jul 2015 03:00:00 PST</pubDate>
+            <guid isPermaLink="false">1600-1301</guid>
+            <itunes:subtitle xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">Windows 10 is out just in time for our tenth episode so let's talk about it! We also have more updates on Splatoon, Rocket League, and Halo 5: Guardians. And remember the Ouya? Remember Dragon Quest? Remember shorter podcasts?</itunes:subtitle>
+            <itunes:summary>Windows 10 is out just in time for our tenth episode so let's talk about it! We also have more updates on Splatoon, Rocket League, and Halo 5: Guardians. And remember the Ouya? Remember Dragon Quest? Remember shorter podcasts?</itunes:summary>
+            <itunes:author xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">Giant Bomb</itunes:author>
+            <itunes:explicit xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">no</itunes:explicit>
+            <itunes:duration xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">10465</itunes:duration>
+            <itunes:keywords xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">GiantBomb, Giant Bomb, Vinny Caravella, Alex Navarro, video games, PS4, WiiU, Xbox One, PC, PS Vita, 3DS</itunes:keywords>
+            <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2769919-9197676191-19909.jpg"/>
+            <media:content fileSize="83843537" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1301/Ep10_-_The_Giant_Beastcast-07-30-2015-0633563054.mp3" xmlns:media="http://search.yahoo.com/mrss/"/>
+            <enclosure length="10465" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1301/Ep10_-_The_Giant_Beastcast-07-30-2015-0633563054.mp3"/>
+        </item>
+        <item>
+            <title>The Giant Beastcast: Episode 09</title>
+            <link>http://www.giantbomb.com/podcasts/the-giant-beastcast-episode-09/1600-1296/</link>
+            <description>Why do some things hold up and others don't? Why do we want remakes? We explore nostalgia and some of our early game experiences. Also, Minions. Also, EVO, Rocket League, and even more Hearthstone!</description>
+            <pubDate>Fri, 24 Jul 2015 03:00:00 PST</pubDate>
+            <guid isPermaLink="false">1600-1296</guid>
+            <itunes:subtitle xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">Why do some things hold up and others don't? Why do we want remakes? We explore nostalgia and some of our early game experiences. Also, Minions. Also, EVO, Rocket League, and even more Hearthstone!</itunes:subtitle>
+            <itunes:summary>Why do some things hold up and others don't? Why do we want remakes? We explore nostalgia and some of our early game experiences. Also, Minions. Also, EVO, Rocket League, and even more Hearthstone!</itunes:summary>
+            <itunes:author xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">Giant Bomb</itunes:author>
+            <itunes:explicit xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">no</itunes:explicit>
+            <itunes:duration xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">9932</itunes:duration>
+            <itunes:keywords xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">GiantBomb, Giant Bomb, Vinny Caravella, Alex Navarro, video games, PS4, WiiU, Xbox One, PC, PS Vita, 3DS</itunes:keywords>
+            <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2767971-8297539355-27642.jpg"/>
+            <media:content fileSize="79573920" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1296/Ep09_-_The_Giant_Beastcast-07-24-2015-1819184957.mp3" xmlns:media="http://search.yahoo.com/mrss/"/>
+            <enclosure length="9932" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1296/Ep09_-_The_Giant_Beastcast-07-24-2015-1819184957.mp3"/>
+        </item>
+        <item>
+            <title>The Giant Beastcast - Episode 08</title>
+            <link>http://www.giantbomb.com/podcasts/the-giant-beastcast-episode-08/1600-1288/</link>
+            <description>EA shows off its wares once more and we have some updated impressions. Confused about NY and NJ sports teams? No? Confused about songs that play after a hockey goal? Yes? Why are we talking about Gundam again? Lastly and with heavy hearts, we celebrate th</description>
+            <pubDate>Fri, 17 Jul 2015 03:00:00 PST</pubDate>
+            <guid isPermaLink="false">1600-1288</guid>
+            <itunes:subtitle xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">EA shows off its wares once more and we have some updated impressions. Confused about NY and NJ sports teams? No? Confused about songs that play after a hockey goal? Yes? Why are we talking about Gundam again? Lastly and with heavy hearts, we celebrate th</itunes:subtitle>
+            <itunes:summary>EA shows off its wares once more and we have some updated impressions. Confused about NY and NJ sports teams? No? Confused about songs that play after a hockey goal? Yes? Why are we talking about Gundam again? Lastly and with heavy hearts, we celebrate th</itunes:summary>
+            <itunes:author xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">Giant Bomb</itunes:author>
+            <itunes:explicit xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">no</itunes:explicit>
+            <itunes:duration xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">7966</itunes:duration>
+            <itunes:keywords xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">GiantBomb, Giant Bomb, Vinny Caravella, Alex Navarro, video games, PS4, WiiU, Xbox One, PC, PS Vita, 3DS</itunes:keywords>
+            <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2766213-8479565907-Iwata.jpg"/>
+            <media:content fileSize="63849745" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1288/Ep08_-_The_Giant_Beastcast-07-17-2015-1749410108.mp3" xmlns:media="http://search.yahoo.com/mrss/"/>
+            <enclosure length="7966" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1288/Ep08_-_The_Giant_Beastcast-07-17-2015-1749410108.mp3"/>
+        </item>
+        <item>
+            <title>The Giant Beastcast: Episode 07</title>
+            <link>http://www.giantbomb.com/podcasts/the-giant-beastcast-episode-07/1600-1280/</link>
+            <description>Are magazines the future? What's in the future for Splatoon? Should Dragon Ball have a future? Is the future ready for future content creators? Just how do we organize our stuff in the future? So many questions. No answers.</description>
+            <pubDate>Fri, 10 Jul 2015 03:00:00 PST</pubDate>
+            <guid isPermaLink="false">1600-1280</guid>
+            <itunes:subtitle xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">Are magazines the future? What's in the future for Splatoon? Should Dragon Ball have a future? Is the future ready for future content creators? Just how do we organize our stuff in the future? So many questions. No answers.</itunes:subtitle>
+            <itunes:summary>Are magazines the future? What's in the future for Splatoon? Should Dragon Ball have a future? Is the future ready for future content creators? Just how do we organize our stuff in the future? So many questions. No answers.</itunes:summary>
+            <itunes:author xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">Giant Bomb</itunes:author>
+            <itunes:explicit xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">no</itunes:explicit>
+            <itunes:duration xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">8494</itunes:duration>
+            <itunes:keywords xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">GiantBomb, Giant Bomb, Vinny Caravella, Alex Navarro, video games, PS4, WiiU, Xbox One, PC, PS Vita, 3DS</itunes:keywords>
+            <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2764789-adco-videosixteenbynine1050.jpg"/>
+            <media:content fileSize="68071971" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1280/Ep07_-_The_Giant_Beastcast-07-09-2015-2694489247.mp3" xmlns:media="http://search.yahoo.com/mrss/"/>
+            <enclosure length="8494" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1280/Ep07_-_The_Giant_Beastcast-07-09-2015-2694489247.mp3"/>
+        </item>
+        <item>
+            <title>The Giant Beastcast: Episode 06</title>
+            <link>http://www.giantbomb.com/podcasts/the-giant-beastcast-episode-06/1600-1275/</link>
+            <description>What happened with Batman? Is Star Citizen a game? Is it better to have fluff content in your game to flesh out the world or to just streamline the whole experience? Maybe... it's a tie.</description>
+            <pubDate>Fri, 03 Jul 2015 03:00:00 PST</pubDate>
+            <guid isPermaLink="false">1600-1275</guid>
+            <itunes:subtitle xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">What happened with Batman? Is Star Citizen a game? Is it better to have fluff content in your game to flesh out the world or to just streamline the whole experience? Maybe... it's a tie.</itunes:subtitle>
+            <itunes:summary>What happened with Batman? Is Star Citizen a game? Is it better to have fluff content in your game to flesh out the world or to just streamline the whole experience? Maybe... it's a tie.</itunes:summary>
+            <itunes:author xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">Giant Bomb</itunes:author>
+            <itunes:explicit xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">no</itunes:explicit>
+            <itunes:duration xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">7703</itunes:duration>
+            <itunes:keywords xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">GiantBomb, Giant Bomb, Vinny Caravella, Alex Navarro, video games, PS4, WiiU, Xbox One, PC, PS Vita, 3DS</itunes:keywords>
+            <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2763140-clipontie.jpg"/>
+            <media:content fileSize="61745412" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1275/Ep06_-_The_Giant_Beastcast-07-02-2015-0590391699.mp3" xmlns:media="http://search.yahoo.com/mrss/"/>
+            <enclosure length="7703" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1275/Ep06_-_The_Giant_Beastcast-07-02-2015-0590391699.mp3"/>
+        </item>
+        <item>
+            <title>The Giant Beastcast - Episode 05</title>
+            <link>http://www.giantbomb.com/podcasts/the-giant-beastcast-episode-05/1600-1267/</link>
+            <description>E3 is done and we're back to share the good vibes! We share some final thoughts from last week, get deep into our Batman experiences, mix art and money, and procedurally generate other random thoughts.</description>
+            <pubDate>Fri, 26 Jun 2015 03:00:00 PST</pubDate>
+            <guid isPermaLink="false">1600-1267</guid>
+            <itunes:subtitle xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">E3 is done and we're back to share the good vibes! We share some final thoughts from last week, get deep into our Batman experiences, mix art and money, and procedurally generate other random thoughts.</itunes:subtitle>
+            <itunes:summary>E3 is done and we're back to share the good vibes! We share some final thoughts from last week, get deep into our Batman experiences, mix art and money, and procedurally generate other random thoughts.</itunes:summary>
+            <itunes:author xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">Giant Bomb</itunes:author>
+            <itunes:explicit xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">no</itunes:explicit>
+            <itunes:duration xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">8627</itunes:duration>
+            <itunes:keywords xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">GiantBomb, Giant Bomb, Vinny Caravella, Alex Navarro, video games, PS4, WiiU, Xbox One, PC, PS Vita, 3DS</itunes:keywords>
+            <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2761868-4158645939-thumb.jpg"/>
+            <media:content fileSize="69137848" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1267/Ep05_-_The_Giant_Beastcast-06-25-2015-6347126612.mp3" xmlns:media="http://search.yahoo.com/mrss/"/>
+            <enclosure length="8627" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1267/Ep05_-_The_Giant_Beastcast-06-25-2015-6347126612.mp3"/>
+        </item>
+        <item>
+            <title>The Giant Beastcast - Episode 04</title>
+            <link>http://www.giantbomb.com/podcasts/the-giant-beastcast-episode-04/1600-1254/</link>
+            <description>We gather up in a dark room at E3 2015 to talk about our bright virtual and augmented future!</description>
+            <pubDate>Fri, 19 Jun 2015 03:00:00 PST</pubDate>
+            <guid isPermaLink="false">1600-1254</guid>
+            <itunes:subtitle xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">We gather up in a dark room at E3 2015 to talk about our bright virtual and augmented future!</itunes:subtitle>
+            <itunes:summary>We gather up in a dark room at E3 2015 to talk about our bright virtual and augmented future!</itunes:summary>
+            <itunes:author xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">Giant Bomb</itunes:author>
+            <itunes:explicit xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">no</itunes:explicit>
+            <itunes:duration xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">3210</itunes:duration>
+            <itunes:keywords xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">GiantBomb, Giant Bomb, Vinny Caravella, Alex Navarro, video games, PS4, WiiU, Xbox One, PC, PS Vita, 3DS</itunes:keywords>
+            <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2760169-5846057036-lawnm.jpg"/>
+            <media:content fileSize="25800720" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1254/Ep04_-_The_Giant_Beastcast-06-19-2015-2288129610.mp3" xmlns:media="http://search.yahoo.com/mrss/"/>
+            <enclosure length="3210" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1254/Ep04_-_The_Giant_Beastcast-06-19-2015-2288129610.mp3"/>
+        </item>
+        <item>
+            <title>The Giant Beastcast - Episode 03</title>
+            <link>http://www.giantbomb.com/podcasts/the-giant-beastcast-episode-03/1600-1237/</link>
+            <description>It's a mad dash to electronic three as the gang tries to make coherent predictions about what we'll see at the show, while also discussing early Ratchet &amp;amp; Clank and Mirror's Edge info, examining what goes into an E3 demo, and lighting one final candle</description>
+            <pubDate>Fri, 12 Jun 2015 03:00:00 PST</pubDate>
+            <guid isPermaLink="false">1600-1237</guid>
+            <itunes:subtitle xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">It's a mad dash to electronic three as the gang tries to make coherent predictions about what we'll see at the show, while also discussing early Ratchet &amp;amp; Clank and Mirror's Edge info, examining what goes into an E3 demo, and lighting one final candle</itunes:subtitle>
+            <itunes:summary>It's a mad dash to electronic three as the gang tries to make coherent predictions about what we'll see at the show, while also discussing early Ratchet &amp;amp; Clank and Mirror's Edge info, examining what goes into an E3 demo, and lighting one final candle</itunes:summary>
+            <itunes:author xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">Giant Bomb</itunes:author>
+            <itunes:explicit xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">no</itunes:explicit>
+            <itunes:duration xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">6604</itunes:duration>
+            <itunes:keywords xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">GiantBomb, Giant Bomb, Vinny Caravella, Alex Navarro, video games, PS4, WiiU, Xbox One, PC, PS Vita, 3DS</itunes:keywords>
+            <itunes:image href="http://static.giantbomb.com/uploads/original/0/39/2757521-atreyu_falcor.jpg"/>
+            <media:content fileSize="52953042" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1237/Ep03_-_The_Giant_Beastcast-06-12-2015-0239772520.mp3" xmlns:media="http://search.yahoo.com/mrss/"/>
+            <enclosure length="6604" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1237/Ep03_-_The_Giant_Beastcast-06-12-2015-0239772520.mp3"/>
+        </item>
+        <item>
+            <title>The Giant Beastcast - Episode 02</title>
+            <link>http://www.giantbomb.com/podcasts/the-giant-beastcast-episode-02/1600-1232/</link>
+            <description>We've got a block of Valve and Steam related news, that Fallout 4 announcement, and we get an update from the field concerning the future of Skylanders. Things get heated with some Hearthstone news, Massive Chalice gets discussed, and we discover Alex's g</description>
+            <pubDate>Fri, 05 Jun 2015 03:00:00 PST</pubDate>
+            <guid isPermaLink="false">1600-1232</guid>
+            <itunes:subtitle xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">We've got a block of Valve and Steam related news, that Fallout 4 announcement, and we get an update from the field concerning the future of Skylanders. Things get heated with some Hearthstone news, Massive Chalice gets discussed, and we discover Alex's g</itunes:subtitle>
+            <itunes:summary>We've got a block of Valve and Steam related news, that Fallout 4 announcement, and we get an update from the field concerning the future of Skylanders. Things get heated with some Hearthstone news, Massive Chalice gets discussed, and we discover Alex's g</itunes:summary>
+            <itunes:author xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">Giant Bomb</itunes:author>
+            <itunes:explicit xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">no</itunes:explicit>
+            <itunes:duration xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">7876</itunes:duration>
+            <itunes:keywords xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">GiantBomb, Giant Bomb, Vinny Caravella, Alex Navarro, video games, PS4, WiiU, Xbox One, PC, PS Vita, 3DS</itunes:keywords>
+            <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2754907-steampowered_computer.jpg"/>
+            <media:content fileSize="63126321" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1232/Ep02_-_The_Giant_Beastcast-06-04-2015-7672933712.mp3" xmlns:media="http://search.yahoo.com/mrss/"/>
+            <enclosure length="7876" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1232/Ep02_-_The_Giant_Beastcast-06-04-2015-7672933712.mp3"/>
+        </item>
+        <item>
+            <title>The Giant Beastcast - Episode 01</title>
+            <link>http://www.giantbomb.com/podcasts/the-giant-beastcast-episode-01/1600-1226/</link>
+            <description>Austin Walker joins us as we deliver updates on Splatoon, Danny Trejo, and Jeff's Australian accent. We also dig into topics ranging from streaming Adult Only games to the current online gaming environment.</description>
+            <pubDate>Fri, 29 May 2015 03:00:00 PST</pubDate>
+            <guid isPermaLink="false">1600-1226</guid>
+            <itunes:subtitle xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">Austin Walker joins us as we deliver updates on Splatoon, Danny Trejo, and Jeff's Australian accent. We also dig into topics ranging from streaming Adult Only games to the current online gaming environment.</itunes:subtitle>
+            <itunes:summary>Austin Walker joins us as we deliver updates on Splatoon, Danny Trejo, and Jeff's Australian accent. We also dig into topics ranging from streaming Adult Only games to the current online gaming environment.</itunes:summary>
+            <itunes:author xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">Giant Bomb</itunes:author>
+            <itunes:explicit xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">no</itunes:explicit>
+            <itunes:duration xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">6889</itunes:duration>
+            <itunes:keywords xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">GiantBomb, Giant Bomb, Vinny Caravella, Alex Navarro, video games, PS4, WiiU, Xbox One, PC, PS Vita, 3DS</itunes:keywords>
+            <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2752995-10712640_390751424411288_4321709960687955095_o.jpg"/>
+            <media:content fileSize="55233871" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1226/Ep01_-_The_Giant_Beastcast-05-29-2015-7881347619.mp3" xmlns:media="http://search.yahoo.com/mrss/"/>
+            <enclosure length="6889" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1226/Ep01_-_The_Giant_Beastcast-05-29-2015-7881347619.mp3"/>
+        </item>
+        <item>
+            <title>The Giant Beastcast - Episode 0</title>
+            <link>http://www.giantbomb.com/podcasts/the-giant-beastcast-episode-0/1600-1217/</link>
+            <description>We try to convince CNET's Jeff Bakalar that the Witcher's extended universe is amazing while he clues us in on where the real money is made. We've also got updates on the Grand Theft Auto movie, Splatoon, Alex's Mad Max impressions, and hot New York real </description>
+            <pubDate>Fri, 22 May 2015 03:00:00 PST</pubDate>
+            <guid isPermaLink="false">1600-1217</guid>
+            <itunes:subtitle xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">We try to convince CNET's Jeff Bakalar that the Witcher's extended universe is amazing while he clues us in on where the real money is made. We've also got updates on the Grand Theft Auto movie, Splatoon, Alex's Mad Max impressions, and hot New York real </itunes:subtitle>
+            <itunes:summary>We try to convince CNET's Jeff Bakalar that the Witcher's extended universe is amazing while he clues us in on where the real money is made. We've also got updates on the Grand Theft Auto movie, Splatoon, Alex's Mad Max impressions, and hot New York real </itunes:summary>
+            <itunes:author xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">Giant Bomb</itunes:author>
+            <itunes:explicit xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">no</itunes:explicit>
+            <itunes:duration xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">8250</itunes:duration>
+            <itunes:keywords xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">GiantBomb, Giant Bomb, Vinny Caravella, Alex Navarro, video games, PS4, WiiU, Xbox One, PC, PS Vita, 3DS</itunes:keywords>
+            <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2751476-witcher3_movie.jpg"/>
+            <media:content fileSize="66227135" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1217/thegiantbeastcast_ep0_05222015-05-22-2015-2864898006.mp3" xmlns:media="http://search.yahoo.com/mrss/"/>
+            <enclosure length="8250" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1217/thegiantbeastcast_ep0_05222015-05-22-2015-2864898006.mp3"/>
+        </item>
+        <item>
+            <title>The Giant Beastcast - Microphone Check</title>
+            <link>http://www.giantbomb.com/podcasts/the-giant-beastcast-microphone-check/1600-1215/</link>
+            <description>We're getting ready to spin up The Giant Beastcast tires this Friday 05/22/2015!</description>
+            <pubDate>Tue, 19 May 2015 18:00:00 PST</pubDate>
+            <guid isPermaLink="false">1600-1215</guid>
+            <itunes:subtitle xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">We're getting ready to spin up The Giant Beastcast tires this Friday 05/22/2015!</itunes:subtitle>
+            <itunes:summary>We're getting ready to spin up The Giant Beastcast tires this Friday 05/22/2015!</itunes:summary>
+            <itunes:author xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">Giant Bomb</itunes:author>
+            <itunes:explicit xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">no</itunes:explicit>
+            <itunes:duration xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">262</itunes:duration>
+            <itunes:keywords xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">GiantBomb, Giant Bomb, Vinny Caravella, Alex Navarro, video games, PS4, WiiU, Xbox One, PC, PS Vita, 3DS</itunes:keywords>
+            <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2750982-beastcast_itunes.png"/>
+            <media:content fileSize="6419846" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1215/The_Beastcast_-_Mic_Check-05-19-2015-4871576045.mp3" xmlns:media="http://search.yahoo.com/mrss/"/>
+            <enclosure length="262" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1215/The_Beastcast_-_Mic_Check-05-19-2015-4871576045.mp3"/>
+        </item>
+    </channel>
+</rss>

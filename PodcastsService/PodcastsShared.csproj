@@ -125,9 +125,16 @@
     <Compile Include="Models\Episode.cs" />
     <Compile Include="Models\Podcast.cs" />
     <Compile Include="MutexExtensions.cs" />
+    <Compile Include="PodcastFeed.cs" />
     <Compile Include="PodcastsFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Properties\PodcastsService.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Podcasts.PlatformIndependent\Podcasts.PlatformIndependent.csproj">
+      <Project>{89c39d43-4d5a-4154-adc1-bfa74dd7a81a}</Project>
+      <Name>Podcasts.PlatformIndependent</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
