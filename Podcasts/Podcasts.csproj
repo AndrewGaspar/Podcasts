@@ -131,11 +131,11 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PodcastsBackgroundAudio\Podcasts.BackgroundAudio.csproj">
+    <ProjectReference Include="..\Podcasts.BackgroundAudio\Podcasts.BackgroundAudio.csproj">
       <Project>{2e903825-3306-4974-a344-fb7bd33977e9}</Project>
       <Name>Podcasts.BackgroundAudio</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PodcastsService\Podcasts.Shared.csproj">
+    <ProjectReference Include="..\Podcasts.Shared\Podcasts.Shared.csproj">
       <Project>{f0676cb7-f699-42f2-bed8-a09e83cef3bc}</Project>
       <Name>Podcasts.Shared</Name>
     </ProjectReference>
