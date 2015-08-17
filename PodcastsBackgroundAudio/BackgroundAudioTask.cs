@@ -1,6 +1,4 @@
-﻿using System;
-using System.Threading;
-using Podcasts;
+﻿using System.Threading;
 using Podcasts.Messages;
 using Windows.ApplicationModel.Background;
 using Windows.Media;
@@ -8,7 +6,7 @@ using Windows.Media.Core;
 using Windows.Media.Playback;
 using Windows.Storage.Streams;
 
-namespace PodcastsBackground
+namespace Podcasts.BackgroundAudio
 {
     public sealed class BackgroundAudioTask : IBackgroundTask
     {

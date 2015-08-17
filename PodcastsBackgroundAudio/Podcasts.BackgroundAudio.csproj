@@ -7,8 +7,8 @@
     <ProjectGuid>{2E903825-3306-4974-A344-FB7BD33977E9}</ProjectGuid>
     <OutputType>winmdobj</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PodcastsBackground</RootNamespace>
-    <AssemblyName>PodcastsBackground</AssemblyName>
+    <RootNamespace>Podcasts.BackgroundAudio</RootNamespace>
+    <AssemblyName>Podcasts.BackgroundAudio</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>
