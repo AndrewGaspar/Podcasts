@@ -8,6 +8,41 @@ namespace Podcasts.Dom
     /// </summary>
     public class PodcastFeedItem : XmlNodeHost
     {
+        public class ITunesNS : XmlNodeHost
+        {
+            internal ITunesNS(IXmlNode node) : base(node, Constants.ITunesNamespace)
+            {
+
+            }
+
+            private string _author;
+            public string Author => LazyLoadString(ref _author, "author");
+
+            private YesEnum? _block;
+            public YesEnum? Block => LazyLoadYesEnum(ref _block, "block");
+
+            private ITunesImageNode _image;
+            public ITunesImageNode Image => _image ?? (_image = ITunesImageNode.TryCreate(this));
+
+            private TimeSpan? _duration;
+            public TimeSpan? Duration => LazyLoadITunesDuration(ref _duration, "duration");
+
+            private ExplicitEnum? _explicit;
+            public ExplicitEnum? Explicit => LazyLoadExplicitEnum(ref _explicit, "explicit");
+
+            private YesEnum? _isClosedCaption;
+            public YesEnum? IsClosedCaption => LazyLoadYesEnum(ref _isClosedCaption, "isClosedCaption");
+
+            private uint? _order;
+            public uint? Order => LazyLoadUint(ref _order, "order");
+
+            private string _subtitle;
+            public string Subtitle => LazyLoadString(ref _subtitle, "subtitle");
+
+            private string _summary;
+            public string Summary => LazyLoadString(ref _summary, "summary");
+        }
+
         public IXmlNode Item => Node;
 
         internal PodcastFeedItem(IXmlNode node) : base(node)
@@ -54,6 +89,9 @@ namespace Podcasts.Dom
 
         private string _source;
         public string Source => LazyLoadString(ref _source, "source");
+
+        private ITunesNS _itunes;
+        public ITunesNS ITunes => _itunes ?? (_itunes = new ITunesNS(Node));
     }
 
 }

@@ -113,6 +113,11 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dom\Constants.cs" />
+    <Compile Include="Dom\ExplicitEnum.cs" />
+    <Compile Include="Dom\ITunesImageNode.cs" />
+    <Compile Include="Dom\XmlNamespace.cs" />
+    <Compile Include="Dom\YesEnum.cs" />
     <Compile Include="Transport\BackgroundMessageTransport.cs" />
     <Compile Include="Dom\EnclosureNode.cs" />
     <Compile Include="Dom\Helpers.cs" />

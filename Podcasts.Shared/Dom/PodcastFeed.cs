@@ -14,6 +14,100 @@ namespace Podcasts.Dom
     {
         private XmlDocument Document;
 
+        public class ITunesNS : XmlNodeHost
+        {
+            public class CategoryNode : XmlNodeHost
+            {
+                public IXmlNode Category => Node;
+
+                public CategoryNode(IXmlNode node) : base(node, Constants.ITunesNamespace)
+                {
+
+                }
+
+                internal static CategoryNode TryCreate(XmlNodeHost host)
+                {
+                    var categoryNode = host.SelectSingleNode("category");
+
+                    return categoryNode == null ? null : new CategoryNode(categoryNode);
+                }
+
+                private CategoryNode TryCreate()
+                {
+                    return TryCreate(this);
+                }
+
+                private CategoryNode _category;
+                public CategoryNode SubCategories => _category ?? (_category = TryCreate());
+
+                private string _text;
+                public string Text => LazyLoadStringAttribute(ref _text, "text");
+            }
+
+            public class OwnerNode : XmlNodeHost
+            {
+                public OwnerNode(IXmlNode node) : base(node, Constants.ITunesNamespace)
+                {
+
+                }
+
+                private string _email;
+                public string Email => LazyLoadString(ref _email, "email");
+
+                private string _name;
+                public string Name => LazyLoadString(ref _name, "name");
+            }
+
+            public ITunesNS(IXmlNode node) : base(node, Constants.ITunesNamespace)
+            {
+
+            }
+
+            private string _author;
+            public string Author => LazyLoadString(ref _author, "author");
+
+            private YesEnum? _block;
+            public YesEnum? Block => LazyLoadYesEnum(ref _block, "block");
+
+            private IEnumerable<CategoryNode> _categories;
+            public IEnumerable<CategoryNode> Categories => 
+                _categories ?? (_categories = SelectNodes("category").Select(node => new CategoryNode(node)).CacheResults());
+
+            private ITunesImageNode _image;
+            public ITunesImageNode Image => _image ?? (_image = ITunesImageNode.TryCreate(this));
+            
+            private ExplicitEnum? _explicit;
+            public ExplicitEnum? Explicit => LazyLoadExplicitEnum(ref _explicit, "explicit");
+
+            private YesEnum? _complete;
+            public YesEnum? Complete => LazyLoadYesEnum(ref _complete, "complete");
+
+            private Uri _newFeedUrl;
+            public Uri NewFeedUrl => LazyLoadUri(ref _newFeedUrl, "new-feed-url");
+
+            private OwnerNode _owner;
+            public OwnerNode Owner
+            {
+                get
+                {
+                    if(_owner == null)
+                    {
+                        var node = SelectSingleNode("owner");
+
+                        if (node != null) _owner = new OwnerNode(node);
+                    }
+
+                    return _owner;
+                }
+            }
+
+            private string _subtitle;
+            public string Subtitle => LazyLoadString(ref _subtitle, "subtitle");
+
+            private string _summary;
+            public string Summary => LazyLoadString(ref _summary, "summary");
+        }
+
         public IXmlNode Channel => Node;
 
         public PodcastFeed(XmlDocument dom) : base(dom.SelectSingleNode("/rss/channel"))
@@ -77,6 +171,9 @@ namespace Podcasts.Dom
 
         private ImageNode _image;
         public ImageNode Image => _image ?? (_image = TryGetImageNode());
+
+        private ITunesNS _itunes;
+        public ITunesNS ITunes => _itunes ?? (_itunes = new ITunesNS(Channel));
 
         public static async Task<PodcastFeed> LoadFeedAsync(Uri location)
         {

@@ -37,6 +37,7 @@ namespace Podcasts.Tests
 
             Assert.AreEqual("The Giant Beastcast", beastcast.Title);
             Assert.AreEqual(12, beastcast.Items.Count());
+            Assert.AreEqual("Giant Bomb", beastcast.ITunes.Author);
         }
     }
 }

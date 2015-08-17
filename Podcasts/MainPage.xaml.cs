@@ -86,13 +86,13 @@ namespace Podcasts
                 return;
             }
 
-            var itunesImage = firstItem.Item.ChildNodes.FirstOrDefault(node => node.NodeName == "itunes:image");
+            var itunesImage = firstItem.ITunes.Image;
             
             var episodeTitle = firstItem.Title;
 
             var location = enclosure.Url;
-            
-            var image = itunesImage == null ? null : new Uri(itunesImage.Attributes.GetNamedItem("href").InnerText);
+
+            var image = itunesImage?.Href;
 
             var episode = new Episode()
             {
