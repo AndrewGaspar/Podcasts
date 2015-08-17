@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading;
 using System.Threading.Tasks;
+using Podcasts.Dom;
 using Podcasts.Messages;
 using Podcasts.Models;
 using Windows.Data.Xml.Dom;
@@ -65,24 +66,32 @@ namespace Podcasts
             }
         }
         
+        
         private async Task AddPodcastAsync(Uri url)
         {
-            var document = await XmlDocument.LoadFromUriAsync(url);
+            var document = await PodcastFeed.LoadFeedAsync(url);
 
-            var title = document.SelectNodes("/rss/channel/title").First();
+            var title = document.Title;
 
-            CurrentPodcastName.Text = title.InnerText;
+            if(title != null) CurrentPodcastName.Text = title;
 
-            var firstItem = document.SelectSingleNode("/rss/channel/item");
+            var firstItem = document.Items.First();
 
-            var enclosure = firstItem.SelectSingleNode("enclosure");
-            var itunesImage = firstItem.ChildNodes.FirstOrDefault(node => node.NodeName == "itunes:image");
+            var enclosure = firstItem.Enclosure;
+
+            if(enclosure == null)
+            {
+                var dialog = new MessageDialog("Item has no content.", "Error!");
+                await dialog.ShowAsync();
+                return;
+            }
+
+            var itunesImage = firstItem.Item.ChildNodes.FirstOrDefault(node => node.NodeName == "itunes:image");
             
-            var episodeTitle = firstItem.SelectSingleNode("title").InnerText;
-            var location = new Uri(enclosure.Attributes.GetNamedItem("url").InnerText);
+            var episodeTitle = firstItem.Title;
 
-            var nodes = firstItem.ChildNodes.ToList();
-
+            var location = enclosure.Url;
+            
             var image = itunesImage == null ? null : new Uri(itunesImage.Attributes.GetNamedItem("href").InnerText);
 
             var episode = new Episode()
@@ -90,7 +99,7 @@ namespace Podcasts
                 Title = episodeTitle,
                 Location = location,
                 Image = image,
-                PodcastName = title.InnerText,
+                PodcastName = firstItem.Title,
             };
 
             if (MediaPlayerState.Closed == BackgroundMediaPlayer.Current.CurrentState)
