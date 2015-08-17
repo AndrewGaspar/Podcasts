@@ -114,6 +114,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BackgroundMessageTransport.cs" />
+    <Compile Include="Dom\EnclosureNode.cs" />
+    <Compile Include="Dom\Helpers.cs" />
+    <Compile Include="Dom\ImageNode.cs" />
+    <Compile Include="Dom\PodcastFeedItem.cs" />
+    <Compile Include="Dom\XmlNodeHost.cs" />
     <Compile Include="ForeroundMessageTransport.cs" />
     <Compile Include="JsonHelper.cs" />
     <Compile Include="JsonObjectsFile.cs" />
@@ -125,7 +130,7 @@
     <Compile Include="Models\Episode.cs" />
     <Compile Include="Models\Podcast.cs" />
     <Compile Include="MutexExtensions.cs" />
-    <Compile Include="PodcastFeed.cs" />
+    <Compile Include="Dom\PodcastFeed.cs" />
     <Compile Include="PodcastsFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Properties\PodcastsService.rd.xml" />
