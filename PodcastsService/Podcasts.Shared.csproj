@@ -113,18 +113,18 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BackgroundMessageTransport.cs" />
+    <Compile Include="Transport\BackgroundMessageTransport.cs" />
     <Compile Include="Dom\EnclosureNode.cs" />
     <Compile Include="Dom\Helpers.cs" />
     <Compile Include="Dom\ImageNode.cs" />
     <Compile Include="Dom\PodcastFeedItem.cs" />
     <Compile Include="Dom\XmlNodeHost.cs" />
-    <Compile Include="ForeroundMessageTransport.cs" />
+    <Compile Include="Transport\ForeroundMessageTransport.cs" />
     <Compile Include="JsonHelper.cs" />
     <Compile Include="JsonObjectsFile.cs" />
     <Compile Include="MessageHelper.cs" />
     <Compile Include="Messages\PlayEpisodeRequest.cs" />
-    <Compile Include="MessageTransport.cs" />
+    <Compile Include="Transport\MessageTransport.cs" />
     <Compile Include="Messages\ServiceReadyRequest.cs" />
     <Compile Include="Messages\ServiceReadyNotification.cs" />
     <Compile Include="Models\Episode.cs" />

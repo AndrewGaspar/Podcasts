@@ -1,5 +1,6 @@
 ﻿using System.Threading;
 using Podcasts.Messages;
+using Podcasts.Transport;
 using Windows.ApplicationModel.Background;
 using Windows.Media;
 using Windows.Media.Core;
