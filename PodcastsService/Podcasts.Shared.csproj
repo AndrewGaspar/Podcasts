@@ -122,8 +122,8 @@
     <Compile Include="Transport\ForeroundMessageTransport.cs" />
     <Compile Include="JsonHelper.cs" />
     <Compile Include="JsonObjectsFile.cs" />
-    <Compile Include="MessageHelper.cs" />
     <Compile Include="Messages\PlayEpisodeRequest.cs" />
+    <Compile Include="Transport\Helpers.cs" />
     <Compile Include="Transport\MessageTransport.cs" />
     <Compile Include="Messages\ServiceReadyRequest.cs" />
     <Compile Include="Messages\ServiceReadyNotification.cs" />

@@ -15,7 +15,7 @@ namespace Podcasts.Transport
         {
             ParseAttempts.Add(vs => {
                 T message;
-                if(MessageHelper.TryParseMessage(vs, out message))
+                if(Helpers.TryParseMessage(vs, out message))
                 {
                     action(message);
                     return true;
@@ -95,7 +95,7 @@ namespace Podcasts.Transport
 
         protected void SendMessage<T>(T message)
         {
-            SendMessageRaw(MessageHelper.ToMessage(message));
+            SendMessageRaw(Helpers.ToMessage(message));
         }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using Windows.Foundation.Collections;
 
-namespace Podcasts
+namespace Podcasts.Transport
 {
-    public static class MessageHelper
+    internal static class Helpers
     {
         private const string MessageType = "MessageType";
         private const string MessageBody = "MessageBody";
@@ -18,7 +18,7 @@ namespace Podcasts
         public static bool TryParseMessage<T>(ValueSet message, out T payload)
         {
             var type = (string)message[MessageType];
-            if(type != typeof(T).FullName)
+            if (type != typeof(T).FullName)
             {
                 payload = default(T);
                 return false;
