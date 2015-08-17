@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Podcasts.Models;
 
-namespace Podcasts
+namespace Podcasts.Storage
 {
     public class PodcastsFile : JsonObjectsFile<Podcast>
     {

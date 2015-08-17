@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
+using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.Storage.Streams;
-using System.Linq;
-using System.Threading;
 
-namespace Podcasts
+namespace Podcasts.Storage
 {
     public abstract class JsonObjectsFile<T> where T : IComparable<T>
     {

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
-using Podcasts;
 using Podcasts.Models;
+using Podcasts.Storage;
 
 namespace Podcasts.Tests
 {
