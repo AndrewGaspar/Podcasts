@@ -135,9 +135,9 @@
       <Project>{2e903825-3306-4974-a344-fb7bd33977e9}</Project>
       <Name>Podcasts.BackgroundAudio</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PodcastsService\PodcastsShared.csproj">
+    <ProjectReference Include="..\PodcastsService\Podcasts.Shared.csproj">
       <Project>{f0676cb7-f699-42f2-bed8-a09e83cef3bc}</Project>
-      <Name>PodcastsShared</Name>
+      <Name>Podcasts.Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

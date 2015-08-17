@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Podcasts", "Podcasts\Podcas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Podcasts.BackgroundAudio", "PodcastsBackgroundAudio\Podcasts.BackgroundAudio.csproj", "{2E903825-3306-4974-A344-FB7BD33977E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PodcastsShared", "PodcastsService\PodcastsShared.csproj", "{F0676CB7-F699-42F2-BED8-A09E83CEF3BC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Podcasts.Shared", "PodcastsService\Podcasts.Shared.csproj", "{F0676CB7-F699-42F2-BED8-A09E83CEF3BC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PodcastsUnitTests", "PodcastsUnitTests\PodcastsUnitTests.csproj", "{9388C216-F8A3-462E-AC88-F7571D16C030}"
 EndProject
