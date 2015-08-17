@@ -9,17 +9,10 @@ namespace Podcasts.Tests
     [TestClass]
     public class PodcastFeedTests
     {
-        private Uri TestFeedBaseUri = new Uri("ms-appx:///TestFeeds/");
-
-        private Uri GetFeedUri(string feedName)
-        {
-            return new Uri(TestFeedBaseUri, feedName);
-        }
-
         [TestMethod]
         public async Task ParseBasicPodcastFeedTest()
         {
-            var feed = await PodcastFeed.LoadFeedAsync(GetFeedUri("basic01.xml"));
+            var feed = await PodcastFeed.LoadFeedAsync(TestFeeds.GetFeedUri("basic01.xml"));
 
             Assert.IsTrue(feed.PubDate.HasValue);
 
@@ -33,7 +26,7 @@ namespace Podcasts.Tests
         [TestMethod]
         public async Task BeastcastTest()
         {
-            var beastcast = await PodcastFeed.LoadFeedAsync(GetFeedUri("beastcast.xml"));
+            var beastcast = await PodcastFeed.LoadFeedAsync(TestFeeds.GetFeedUri("beastcast.xml"));
 
             Assert.AreEqual("The Giant Beastcast", beastcast.Title);
             Assert.AreEqual(12, beastcast.Items.Count());

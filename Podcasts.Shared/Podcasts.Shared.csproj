@@ -118,6 +118,7 @@
     <Compile Include="Dom\ITunesImageNode.cs" />
     <Compile Include="Dom\XmlNamespace.cs" />
     <Compile Include="Dom\YesEnum.cs" />
+    <Compile Include="PodcastManager.cs" />
     <Compile Include="Transport\BackgroundMessageTransport.cs" />
     <Compile Include="Dom\EnclosureNode.cs" />
     <Compile Include="Dom\Helpers.cs" />
