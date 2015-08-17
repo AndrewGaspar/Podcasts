@@ -120,7 +120,7 @@
     <Compile Include="Dom\PodcastFeedItem.cs" />
     <Compile Include="Dom\XmlNodeHost.cs" />
     <Compile Include="Transport\ForeroundMessageTransport.cs" />
-    <Compile Include="JsonHelper.cs" />
+    <Compile Include="Utilities\JsonHelper.cs" />
     <Compile Include="Storage\JsonObjectsFile.cs" />
     <Compile Include="Messages\PlayEpisodeRequest.cs" />
     <Compile Include="Transport\Helpers.cs" />
@@ -129,7 +129,7 @@
     <Compile Include="Messages\ServiceReadyNotification.cs" />
     <Compile Include="Models\Episode.cs" />
     <Compile Include="Models\Podcast.cs" />
-    <Compile Include="MutexExtensions.cs" />
+    <Compile Include="Utilities\MutexExtensions.cs" />
     <Compile Include="Dom\PodcastFeed.cs" />
     <Compile Include="Storage\PodcastsFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

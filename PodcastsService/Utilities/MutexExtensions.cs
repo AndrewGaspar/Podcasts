@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Podcasts
+namespace Podcasts.Utilities
 {
     public static class MutexExtensions
     {

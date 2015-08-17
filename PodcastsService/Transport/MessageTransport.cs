@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
+using Podcasts.Utilities;
 using Windows.Foundation.Collections;
 using Windows.Media.Playback;
 

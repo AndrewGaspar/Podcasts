@@ -1,4 +1,5 @@
-﻿using Windows.Foundation.Collections;
+﻿using Podcasts.Utilities;
+using Windows.Foundation.Collections;
 
 namespace Podcasts.Transport
 {
