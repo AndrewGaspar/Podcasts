@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using Podcasts.Dom;
 
-namespace PodcastsUnitTests
+namespace Podcasts.Tests
 {
     [TestClass]
     public class PodcastFeedTests

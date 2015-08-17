@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using Podcasts;
 using Podcasts.Models;
 
-namespace PodcastsUnitTests
+namespace Podcasts.Tests
 {
     [TestClass]
     public class PodcastFileTests

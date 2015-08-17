@@ -7,8 +7,8 @@
     <ProjectGuid>{9388C216-F8A3-462E-AC88-F7571D16C030}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PodcastsUnitTests</RootNamespace>
-    <AssemblyName>PodcastsUnitTests</AssemblyName>
+    <RootNamespace>Podcasts.Tests</RootNamespace>
+    <AssemblyName>Podcasts.Tests</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>
