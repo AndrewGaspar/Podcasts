@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -8,12 +9,15 @@ using System.Threading.Tasks;
 using Podcasts.Dom;
 using Podcasts.Messages;
 using Podcasts.Models;
+using Podcasts.ViewModels;
 using Windows.Data.Xml.Dom;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Gaming.Input;
 using Windows.Media.Playback;
+using Windows.UI;
 using Windows.UI.Popups;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -27,43 +31,63 @@ using Windows.Web.Http;
 
 namespace Podcasts
 {
+
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private App PodcastsApp => (App)Application.Current;
+        public App App => (App)Application.Current;
+
+        public AppViewModel ViewModel => App.AppViewModel;
 
         public MainPage()
         {
             this.InitializeComponent();
-            
-            //LoadPodcast();
+            this.DataContext = this;
         }
 
-        public async void LoadPodcast()
+        public class PresentationBindings : PropertyChangeBase
         {
-            var document = await XmlDocument.LoadFromUriAsync(new Uri("http://www.giantbomb.com/podcast-xml/giant-bombcast/"));
+            private UISettings UISettings { get; } = new UISettings();
+
+            public PresentationBindings()
+            {
+                UpdateAppBarBrush();
+                
+                UISettings.ColorValuesChanged += UISettings_ColorValuesChanged;
+            }
+
+            private void UISettings_ColorValuesChanged(UISettings sender, object args)
+            {
+                UpdateAppBarBrush();
+            }
+
+            private void UpdateAppBarBrush()
+            {
+                AppBarBrush = new SolidColorBrush(UISettings.GetColorValue(UIColorType.AccentDark1));
+            }
             
+            private Brush _appBarBrush;
+            public Brush AppBarBrush
+            {
+                get
+                {
+                    return _appBarBrush;
+                }
+                private set
+                {
+                    _appBarBrush = value;
+                    NotifyPropertyChanged();
+                }
+            }
         }
-        
-        private void Current_CurrentStateChanged(MediaPlayer sender, object args)
-        {
-            //throw new NotImplementedException();
-        }
+
+        public PresentationBindings Presentation { get; } = new PresentationBindings();
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MainSplitView.IsPaneOpen = !MainSplitView.IsPaneOpen;
-        }
-
-        private async void AddPodcastButton_Click(object sender, RoutedEventArgs e)
-        {
-            Uri location;
-            if(Uri.TryCreate(AddPodcastUrl.Text, UriKind.Absolute, out location))
-            {
-                await AddPodcastAsync(location);
-            }
         }
         
         
@@ -73,7 +97,7 @@ namespace Podcasts
 
             var title = document.Title;
 
-            if(title != null) CurrentPodcastName.Text = title;
+            //if(title != null) CurrentPodcastName.Text = title;
 
             var firstItem = document.Items.First();
 
@@ -104,10 +128,10 @@ namespace Podcasts
 
             if (MediaPlayerState.Closed == BackgroundMediaPlayer.Current.CurrentState)
             {
-                await PodcastsApp.MessageService.PingServiceAsync();
+                await App.MessageService.PingServiceAsync();
             }
 
-            PodcastsApp.MessageService.RequestPlayback(new PlayEpisodeRequest { Episode = episode });
+            App.MessageService.RequestPlayback(new PlayEpisodeRequest { Episode = episode });
         }
     }
 }

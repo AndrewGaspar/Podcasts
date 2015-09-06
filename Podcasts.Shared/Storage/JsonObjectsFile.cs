@@ -57,7 +57,7 @@ namespace Podcasts.Storage
                 File = null;
             });
 
-        public async Task<IList<T>> ReadObjectsAsync() => 
+        public async Task<IList<T>> ReadObjectsAsync() =>
             await UseFileAsync(async file =>
             {
                 using (var readStream = await file.OpenReadAsync().AsTask().ConfigureAwait(false))
@@ -82,7 +82,7 @@ namespace Podcasts.Storage
         {
             // does not own the stream object
             var classicStream = writeStream.AsStreamForWrite();
-            
+
             Serializer.WriteJson(classicStream, objects);
 
             // truncate any extra data
@@ -170,10 +170,24 @@ namespace Podcasts.Storage
         public Task RemoveObjectAsync(T obj) => ModifyObjectsAsync(objects => objects.Remove(obj));
 
         public Task RemoveMatchingObjectsAsync(IEnumerable<T> items) =>
-            ModifyObjectsAsync(objects => 
+            ModifyObjectsAsync(objects =>
                 items.Aggregate(false, (change, item) => change || objects.Remove(item)));
 
         public Task RemoveObjectsWhereAsync(Predicate<T> test) =>
             ModifyObjectsAsync(objects => objects.RemoveWhere(test) != 0);
+
+        public Task UpdateAnObjectAsync(Predicate<T> test, Action<T> modification) =>
+            ModifyObjectsAsync(objects =>
+            {
+                foreach (var obj in objects)
+                {
+                    if(test(obj))
+                    {
+                        modification(obj);
+                        return true;
+                    }
+                }
+                return false;
+            });
     }
 }

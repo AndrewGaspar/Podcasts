@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 
@@ -15,7 +12,7 @@ namespace Podcasts.Tests
         [TestInitialize]
         public async Task InitializeAsync()
         {
-            await Manager.ClearDatabase();
+            await Manager.ClearDatabaseAsync();
         }
 
         [TestMethod]
@@ -29,8 +26,6 @@ namespace Podcasts.Tests
             Assert.AreEqual("The Giant Beastcast", beastcast.Title);
             Assert.AreEqual(new Uri("http://static.giantbomb.com/uploads/original/0/31/2750982-beastcast_itunes.png"), beastcast.Image);
             Assert.AreEqual(uri, beastcast.Location);
-
-
         }
     }
 }

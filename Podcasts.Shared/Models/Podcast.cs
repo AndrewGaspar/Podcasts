@@ -13,6 +13,11 @@ namespace Podcasts.Models
 
         public Podcast(Podcast other)
         {
+            Update(other);
+        }
+
+        public void Update(Podcast other)
+        {
             Id = other.Id;
             Title = other.Title;
             Location = other.Location;

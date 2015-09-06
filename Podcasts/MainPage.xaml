@@ -3,50 +3,104 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Podcasts"
+    xmlns:vm="using:Podcasts.ViewModels"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    d:DataContext="{d:DesignData Source=DesignData/SampleMain.xaml}">
 
-    <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <!--<Button>
-            <FontIcon FontFamily="{ThemeResource ContentControlThemeFontFamily}" Glyph="&#x2261;" />
-        </Button>-->
-        <SplitView Name="MainSplitView" DisplayMode="CompactOverlay">
+    <Page.Resources>
+        <DataTemplate x:Key="PodcastGridItemTemplate">
+            <StackPanel Orientation="Vertical" Width="Auto" Height="300">
+                <Image Source="{Binding Image}" Width="140" Margin="5" Stretch="UniformToFill" />
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid x:Name="LayoutRoot" Background="{ThemeResource AppBarBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="64" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="48"/>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <SplitView Name="MainSplitView" DisplayMode="CompactOverlay" Grid.Row="0">
             <SplitView.Pane>
-                <StackPanel Orientation="Vertical">
-                    <Button Click="Button_Click">
-                        <FontIcon x:Name="Hamburger" FontFamily="Segoe MDL2 Assets" Glyph="&#xE700;" Margin="0,10,0,0"/>
-                    </Button>
-                </StackPanel>
-            </SplitView.Pane>
-            <SplitView.Content>
-                <StackPanel>
-                    <TextBox x:Name="AddPodcastUrl" InputScope="Url" HorizontalAlignment="Left" Height="32" TextWrapping="NoWrap" VerticalAlignment="Top" Width="166"/>
-                    <Button x:Name="AddPodcastButton" Click="AddPodcastButton_Click">Add</Button>
-                </StackPanel>
-            </SplitView.Content>
-        </SplitView>
-    </RelativePanel>
-    <Page.BottomAppBar>
-        <CommandBar Name="AppBar">
-            <CommandBar.PrimaryCommands>
-                <AppBarButton Icon="Add" Label="Add Podcast" />
-            </CommandBar.PrimaryCommands>
-            <CommandBar.Content>
                 <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <StackPanel Orientation="Horizontal">
-                        <AppBarButton Icon="Previous" />
-                        <StackPanel Orientation="Vertical" Padding="0,10" Width="120">
-                            <TextBlock Name="CurrentPodcastName" HorizontalAlignment="Center">Current Podcast</TextBlock>
-                            <ProgressBar Name="CurrentPodcastProgress" Value="50"></ProgressBar>
-                        </StackPanel>
-                        <AppBarButton Icon="Next" />
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Vertical" Height="Auto" Grid.Row="0">
+                        <Button Click="Button_Click" Background="Transparent">
+                            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE700;" Margin="5,10"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <SymbolIcon Symbol="Add" Margin="5,10"/>
+                        </Button>
+                        <Button Background="Transparent">
+                            <StackPanel Orientation="Horizontal" >
+                                <SymbolIcon Symbol="People" Margin="5,10"/>
+                                <TextBlock VerticalAlignment="Center" Margin="5,10" FontSize="18.667">Podcasts</TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <Button Background="Transparent">
+                            <SymbolIcon Symbol="MusicInfo" Margin="5,10"/>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Grid.Row="1">
+                        <Button Background="Transparent">
+                            <SymbolIcon Symbol="Setting" Margin="5,10" />
+                        </Button>
                     </StackPanel>
                 </Grid>
-            </CommandBar.Content>
-        </CommandBar>
-    </Page.BottomAppBar>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <GridView Name="PodcastGridView" ItemsSource="{Binding ViewModel.Podcasts}" ItemTemplate="{StaticResource PodcastGridItemTemplate}" />
+                <!--<StackPanel>
+                        <TextBox x:Name="AddPodcastUrl" InputScope="Url" HorizontalAlignment="Left" Height="32" TextWrapping="NoWrap" VerticalAlignment="Top" Width="166" Text="{Binding Path=AddPodcastCommand.NewPodcastUri, Mode=TwoWay}"/>
+                        <Button x:Name="AddPodcastButton" Command="{Binding Path=AddPodcastCommand}" CommandParameter="{Binding}">Add</Button>
+                    </StackPanel>-->
+            </SplitView.Content>
+        </SplitView>
+        <Grid Name="ControlBar" Background="{Binding Presentation.AppBarBrush}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Column="0">
+                <Image Width="40" Grid.Column="0" Stretch="UniformToFill" Margin="5" Source="{Binding ViewModel.CurrentPodcast.Image}" />
+                <StackPanel Orientation="Vertical" Grid.Column="1">
+
+                </StackPanel>
+            </StackPanel>
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0">0:00</TextBlock>
+                <Slider Grid.Column="1"></Slider>
+                <TextBlock Grid.Column="2">12:34</TextBlock>
+            </Grid>
+            <StackPanel Orientation="Horizontal" Grid.Column="2">
+                <Button Background="Transparent">
+                    <SymbolIcon Symbol="Previous"/>
+                </Button>
+                <Button Background="Transparent">
+                    <SymbolIcon Symbol="Play"/>
+                </Button>
+                <Button Background="Transparent">
+                    <SymbolIcon Symbol="Next"/>
+                </Button>
+                <Button Background="Transparent">
+                    <SymbolIcon Symbol="Volume"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
 </Page>
