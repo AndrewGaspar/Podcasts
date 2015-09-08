@@ -10,6 +10,7 @@ using Podcasts.Dom;
 using Podcasts.Messages;
 using Podcasts.Models;
 using Podcasts.ViewModels;
+using Windows.ApplicationModel.Activation;
 using Windows.Data.Xml.Dom;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -35,56 +36,43 @@ namespace Podcasts
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class Chrome : Page
     {
         public App App => (App)Application.Current;
 
-        public AppViewModel ViewModel => App.AppViewModel;
+        public AppViewModel ViewModel => App.ViewModel;
 
-        public MainPage()
+        public bool NavigateTo(Type destination, object arguments) => RootFrame.Navigate(destination, arguments);
+
+        public Chrome()
         {
             this.InitializeComponent();
             this.DataContext = this;
+
+            this.RootFrame.NavigationFailed += this.OnNavigationFailed;
         }
 
-        public class PresentationBindings : PropertyChangeBase
+        public void AppLaunched(LaunchActivatedEventArgs e)
         {
-            private UISettings UISettings { get; } = new UISettings();
-
-            public PresentationBindings()
+            if (this.RootFrame.Content == null)
             {
-                UpdateAppBarBrush();
-                
-                UISettings.ColorValuesChanged += UISettings_ColorValuesChanged;
-            }
-
-            private void UISettings_ColorValuesChanged(UISettings sender, object args)
-            {
-                UpdateAppBarBrush();
-            }
-
-            private void UpdateAppBarBrush()
-            {
-                AppBarBrush = new SolidColorBrush(UISettings.GetColorValue(UIColorType.AccentDark1));
-            }
-            
-            private Brush _appBarBrush;
-            public Brush AppBarBrush
-            {
-                get
-                {
-                    return _appBarBrush;
-                }
-                private set
-                {
-                    _appBarBrush = value;
-                    NotifyPropertyChanged();
-                }
+                // When the navigation stack isn't restored navigate to the first page,
+                // configuring the new page by passing required information as a navigation
+                // parameter
+                this.RootFrame.Navigate(typeof(Views.PodcastsListPage), e.Arguments);
             }
         }
 
-        public PresentationBindings Presentation { get; } = new PresentationBindings();
-
+        /// <summary>
+        /// Invoked when Navigation to a certain page fails
+        /// </summary>
+        /// <param name="sender">The Frame which failed navigation</param>
+        /// <param name="e">Details about the navigation failure</param>
+        void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
+        {
+            throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
+        }
+        
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MainSplitView.IsPaneOpen = !MainSplitView.IsPaneOpen;

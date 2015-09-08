@@ -5,4 +5,32 @@
     xmlns:local="using:Podcasts"
     RequestedTheme="Dark">
 
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <Color x:Key="DefaultAccentColor">#FFCA5010</Color>
+            <Color x:Key="DefaultAccentColorDark1">#FF953B0C</Color>
+            <Color x:Key="DefaultAccentColorDark2">#FF722D09</Color>
+            <Color x:Key="DefaultAccentColorDark3">#FF502006</Color>
+            <Color x:Key="DefaultAccentColorLight1">#FFE86F2E</Color>
+            <Color x:Key="DefaultAccentColorLight2">#FFF28130</Color>
+            <Color x:Key="DefaultAccentColorLight3">#FFFF943E</Color>
+
+            <local:PresentationSettings x:Key="DynamicPresentationSettings" />
+            
+            <SolidColorBrush x:Key="AccentColorBrush" Color="{Binding AccentColors.AccentColor,Source={StaticResource DynamicPresentationSettings}}" />
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Dark">
+                    <SolidColorBrush x:Key="AccentColorPrimaryBrush" Color="{Binding AccentColors.AccentColorDark1,Source={StaticResource DynamicPresentationSettings}}" />
+                    <SolidColorBrush x:Key="AccentColorSecondaryBrush" Color="{Binding AccentColors.AccentColorDark2,Source={StaticResource DynamicPresentationSettings}}" />
+                    <SolidColorBrush x:Key="AccentColorTertiaryBrush" Color="{Binding AccentColors.AccentColorDark3,Source={StaticResource DynamicPresentationSettings}}" />
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="Light">
+                    <SolidColorBrush x:Key="AccentColorPrimaryBrush" Color="{Binding AccentColors.AccentColorLight1,Source={StaticResource DynamicPresentationSettings}}" />
+                    <SolidColorBrush x:Key="AccentColorSecondaryBrush" Color="{Binding AccentColors.AccentColorLight2,Source={StaticResource DynamicPresentationSettings}}" />
+                    <SolidColorBrush x:Key="AccentColorTertiaryBrush" Color="{Binding AccentColors.AccentColorLight3,Source={StaticResource DynamicPresentationSettings}}" />
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>
