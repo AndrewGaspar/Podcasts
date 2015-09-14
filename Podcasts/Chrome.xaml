@@ -54,7 +54,7 @@
                 <Frame x:Name="RootFrame" />
             </SplitView.Content>
         </SplitView>
-        <Grid Name="ControlBar" Background="{ThemeResource AccentColorPrimaryBrush}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+        <Grid Name="ControlBar" Background="{StaticResource AccentDark1Brush}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="*"/>

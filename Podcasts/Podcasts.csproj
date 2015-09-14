@@ -138,6 +138,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AccentResources\AccentResources\AccentResources.csproj">
+      <Project>{294acc2d-b951-45ee-bfc1-7b001bdb3a19}</Project>
+      <Name>AccentResources</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Podcasts.BackgroundAudio\Podcasts.BackgroundAudio.csproj">
       <Project>{2e903825-3306-4974-a344-fb7bd33977e9}</Project>
       <Name>Podcasts.BackgroundAudio</Name>
