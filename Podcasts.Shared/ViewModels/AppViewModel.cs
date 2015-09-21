@@ -136,8 +136,8 @@ namespace Podcasts.ViewModels
             }
             finally
             {
-                IsInitializing = false;
                 IsInitialized = true;
+                IsInitializing = false;
             }
         }
 

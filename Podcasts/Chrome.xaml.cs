@@ -6,6 +6,8 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Podcasts.Commands;
 using Podcasts.Dom;
 using Podcasts.Messages;
 using Podcasts.Models;
@@ -32,6 +34,54 @@ using Windows.Web.Http;
 
 namespace Podcasts
 {
+    public enum SplitViewState
+    {
+        Open,
+        Close,
+        Toggle,
+    };
+
+    public class OpenSplitViewCommand : CommandBase<SplitViewState?>
+    {
+        private SplitView _splitView;
+        internal SplitView SplitView
+        {
+            get
+            {
+                return _splitView;
+            }
+            set
+            {
+                _splitView = value;
+            }
+        }
+
+        public OpenSplitViewCommand()
+        {
+        }
+
+        private SplitViewState CurrentState => SplitView.IsPaneOpen ? SplitViewState.Open : SplitViewState.Close;
+
+        public override bool CanExecute(SplitViewState? parameter)
+        {
+            return parameter != null;
+        }
+
+        public override void Execute(SplitViewState? desiredState)
+        {
+            if(!desiredState.HasValue)
+            {
+                return;
+            }
+
+            if (desiredState == SplitViewState.Toggle)
+            {
+                desiredState = CurrentState == SplitViewState.Open ? SplitViewState.Close : SplitViewState.Open;
+            }
+
+            SplitView.IsPaneOpen = (desiredState == SplitViewState.Open);
+        }
+    }
 
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -42,11 +92,17 @@ namespace Podcasts
 
         public AppViewModel ViewModel => App.ViewModel;
 
+        public readonly SplitViewState HamburgerCommandParameter = SplitViewState.Toggle;
+        public OpenSplitViewCommand HamburgerCommand { get; private set; } = new OpenSplitViewCommand();
+
         public bool NavigateTo(Type destination, object arguments) => RootFrame.Navigate(destination, arguments);
 
         public Chrome()
         {
             this.InitializeComponent();
+
+            this.HamburgerCommand.SplitView = MainSplitView;
+
             this.DataContext = this;
 
             this.RootFrame.NavigationFailed += this.OnNavigationFailed;

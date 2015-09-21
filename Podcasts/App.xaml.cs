@@ -23,6 +23,18 @@ namespace Podcasts
         private AppViewModel AppViewModel = new AppViewModel();
 
         public AppViewModel ViewModel => AppViewModel;
+
+        private Chrome AppChrome
+        {
+            get
+            {
+                return Window.Current.Content as Chrome;
+            }
+            set
+            {
+                Window.Current.Content = value;
+            }
+        }
         
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
@@ -45,16 +57,14 @@ namespace Podcasts
         /// <param name="args">Details about the launch request and process.</param>
         protected async override void OnLaunched(LaunchActivatedEventArgs args)
         {
-            Chrome mainPage = Window.Current.Content as Chrome;
-            
             await AppViewModel.InitializeAsync();
             
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
-            if (mainPage == null)
+            if (AppChrome == null)
             {
                 // Create the page chrome to act as the navigation context and navigate to the first page
-                mainPage = new Chrome();
+                var chrome = new Chrome();
 
                 if (args.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
@@ -62,10 +72,10 @@ namespace Podcasts
                 }
 
                 // Place the frame in the current Window
-                Window.Current.Content = mainPage;
+                AppChrome = chrome;
             }
 
-            mainPage.AppLaunched(args);
+            AppChrome.AppLaunched(args);
 
             MessageService.Start();
             
