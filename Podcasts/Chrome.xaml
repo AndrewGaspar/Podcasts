@@ -81,8 +81,31 @@
                             <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE700;" />
                         </Button>
                         <Button>
+                            <Button.Visibility>
+                                <Binding
+                                    Path="IsPaneOpen"
+                                    Converter="{StaticResource InvertBooleanToVisibility}"
+                                    ElementName="MainSplitView" />
+                            </Button.Visibility>
                             <SymbolIcon Symbol="Add" />
                         </Button>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.Visibility>
+                                <Binding
+                                    Path="IsPaneOpen"
+                                    Converter="{StaticResource BooleanToVisibility}"
+                                    ElementName="MainSplitView" />
+                            </Grid.Visibility>
+                            <TextBox Name="AddPodcastTextBox" PlaceholderText="Add a podcast..." Grid.Column="0" />
+                            <Button
+                                Grid.Column="1"
+                                Command="{Binding ViewModel.AddPodcastCommand}"
+                                CommandParameter="{Binding Text, ElementName=AddPodcastTextBox}">Add</Button>
+                        </Grid>
                         <Button>
                             <StackPanel Orientation="Horizontal">
                                 <SymbolIcon Symbol="People" />

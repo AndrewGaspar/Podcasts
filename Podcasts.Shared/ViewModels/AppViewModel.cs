@@ -148,6 +148,7 @@ namespace Podcasts.ViewModels
 
         public async Task AddPodcastAsync(Uri url)
         {
+            // No ConfigureAwait(false) here because AppendPodcastToList must invoke on the UI thread
             var podcast = await Manager.AddPodcastAsync(url);
 
             AppendPodcastToList(new PodcastViewModel(Manager, podcast));

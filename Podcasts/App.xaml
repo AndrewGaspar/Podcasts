@@ -3,12 +3,21 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Podcasts"
+    xmlns:converters="using:Podcasts.Converters"
     RequestedTheme="Dark">
 
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/AccentResources/ResourceDictionaries/ResourceLibrary.xaml" />
+                <ResourceDictionary>
+                    <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
+                    <converters:InvertBooleanConverter x:Key="InvertBoolean" />
+                    <converters:ArregateConverter x:Key="InvertBooleanToVisibility">
+                        <converters:InvertBooleanConverter />
+                        <converters:BooleanToVisibilityConverter />
+                    </converters:ArregateConverter>
+                </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

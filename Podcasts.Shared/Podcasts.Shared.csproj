@@ -114,6 +114,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Converters\ArregateConverter.cs" />
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\InvertBooleanConverter.cs" />
+    <Compile Include="Converters\TypedConverter.cs" />
     <Compile Include="Dom\Constants.cs" />
     <Compile Include="Dom\ExplicitEnum.cs" />
     <Compile Include="Dom\ITunesImageNode.cs" />
