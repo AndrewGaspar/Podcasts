@@ -12,7 +12,6 @@ namespace Podcasts.Dom
         {
             internal ITunesNS(IXmlNode node) : base(node, Constants.ITunesNamespace)
             {
-
             }
 
             private string _author;
@@ -93,5 +92,4 @@ namespace Podcasts.Dom
         private ITunesNS _itunes;
         public ITunesNS ITunes => _itunes ?? (_itunes = new ITunesNS(Node));
     }
-
 }

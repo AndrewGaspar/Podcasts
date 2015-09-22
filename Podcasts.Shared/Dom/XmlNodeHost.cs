@@ -17,7 +17,6 @@ namespace Podcasts.Dom
 
         protected XmlNodeHost(IXmlNode node) : this(node, null)
         {
-
         }
 
         private string ns(string key)

@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading.Tasks;
 using Podcasts.Dom;
 using Podcasts.Models;
@@ -18,7 +13,7 @@ namespace Podcasts.ViewModels
 
         internal PodcastViewModel(PodcastManager manager, Podcast podcast)
         {
-            if(podcast.Id == Guid.Empty)
+            if (podcast.Id == Guid.Empty)
             {
                 throw new ArgumentException("Podcast must have an id!", nameof(podcast));
             }
@@ -28,6 +23,7 @@ namespace Podcasts.ViewModels
         }
 
         private string _title;
+
         public string Title
         {
             get
@@ -44,6 +40,7 @@ namespace Podcasts.ViewModels
         public Uri Image => Podcast.Image;
 
         private bool _isRefreshing = false;
+
         public bool IsRefreshing
         {
             get
@@ -70,6 +67,5 @@ namespace Podcasts.ViewModels
                 IsRefreshing = false;
             }
         }
-
     }
 }

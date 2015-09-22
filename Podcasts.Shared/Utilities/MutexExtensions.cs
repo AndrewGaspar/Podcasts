@@ -8,7 +8,7 @@ namespace Podcasts.Utilities
     {
         public static bool Acquire(this Mutex mutex, TimeSpan timeout, Action action)
         {
-            if(mutex.WaitOne(timeout))
+            if (mutex.WaitOne(timeout))
             {
                 try
                 {

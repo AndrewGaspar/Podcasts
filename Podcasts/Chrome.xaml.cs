@@ -1,39 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Input;
-using Podcasts.Commands;
-using Podcasts.Dom;
-using Podcasts.Messages;
-using Podcasts.Models;
-using Podcasts.ViewModels;
 using Windows.ApplicationModel.Activation;
-using Windows.Data.Xml.Dom;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.Gaming.Input;
 using Windows.Media.Playback;
-using Windows.UI;
 using Windows.UI.Popups;
-using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Windows.Web.Http;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace Podcasts
 {
+    using Commands;
+    using Dom;
+    using Messages;
+    using Models;
+    using ViewModels;
+
     public enum SplitViewState
     {
         Open,
@@ -44,6 +28,7 @@ namespace Podcasts
     public class OpenSplitViewCommand : CommandBase<SplitViewState?>
     {
         private SplitView _splitView;
+
         internal SplitView SplitView
         {
             get
@@ -69,7 +54,7 @@ namespace Podcasts
 
         public override void Execute(SplitViewState? desiredState)
         {
-            if(!desiredState.HasValue)
+            if (!desiredState.HasValue)
             {
                 return;
             }
@@ -124,17 +109,11 @@ namespace Podcasts
         /// </summary>
         /// <param name="sender">The Frame which failed navigation</param>
         /// <param name="e">Details about the navigation failure</param>
-        void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
+        private void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
         {
             throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
         }
-        
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MainSplitView.IsPaneOpen = !MainSplitView.IsPaneOpen;
-        }
-        
-        
+
         private async Task AddPodcastAsync(Uri url)
         {
             var document = await PodcastFeed.LoadFeedAsync(url);
@@ -147,7 +126,7 @@ namespace Podcasts
 
             var enclosure = firstItem.Enclosure;
 
-            if(enclosure == null)
+            if (enclosure == null)
             {
                 var dialog = new MessageDialog("Item has no content.", "Error!");
                 await dialog.ShowAsync();
@@ -155,7 +134,7 @@ namespace Podcasts
             }
 
             var itunesImage = firstItem.ITunes.Image;
-            
+
             var episodeTitle = firstItem.Title;
 
             var location = enclosure.Url;

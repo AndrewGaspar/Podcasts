@@ -1,13 +1,12 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Podcasts.PlatformIndependent.Tests
 {
     [TestClass]
     public class CachedEnumerationTests
     {
-        static int[] Nums = new[] { 5, 4, 3, 2, 1 };
+        private static int[] Nums = new[] { 5, 4, 3, 2, 1 };
 
         [TestMethod]
         public void SingleEnumerationTest()
@@ -15,7 +14,7 @@ namespace Podcasts.PlatformIndependent.Tests
             var cachedNums = Nums.CacheResults();
 
             var count = 0;
-            foreach(var pair in Nums.Pairwise(cachedNums))
+            foreach (var pair in Nums.Pairwise(cachedNums))
             {
                 count++;
                 Assert.AreEqual(pair.Item1, pair.Item2);
@@ -28,7 +27,7 @@ namespace Podcasts.PlatformIndependent.Tests
         public void MultiEnumerationTest()
         {
             var cachedNums = Nums.CacheResults();
-            
+
             foreach (var pair in Nums.Pairwise(cachedNums))
             {
                 Assert.AreEqual(pair.Item1, pair.Item2);
@@ -56,7 +55,7 @@ namespace Podcasts.PlatformIndependent.Tests
             {
                 Assert.AreEqual(pair.Item1, pair.Item2);
             }
-            
+
             Assert.AreEqual(Nums.Length, cachedNums.Count());
         }
     }

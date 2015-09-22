@@ -25,7 +25,7 @@ namespace Podcasts.Tests
             var podcastsChanged = false;
             AppViewModel.PropertyChanged += (sender, args) =>
             {
-                if(args.PropertyName == nameof(AppViewModel.Podcasts))
+                if (args.PropertyName == nameof(AppViewModel.Podcasts))
                 {
                     podcastsChanged = true;
                 }

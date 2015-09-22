@@ -1,18 +1,12 @@
-﻿using System;
-using System.Diagnostics;
-using Podcasts.Transport;
-using Podcasts.ViewModels;
-using Windows.ApplicationModel;
+﻿using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
-using Windows.UI;
-using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 namespace Podcasts
 {
+    using Transport;
+    using ViewModels;
+
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
@@ -35,7 +29,7 @@ namespace Podcasts
                 Window.Current.Content = value;
             }
         }
-        
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -48,7 +42,6 @@ namespace Podcasts
             this.InitializeComponent();
             this.Suspending += OnSuspending;
         }
-        
 
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
@@ -58,7 +51,7 @@ namespace Podcasts
         protected async override void OnLaunched(LaunchActivatedEventArgs args)
         {
             await AppViewModel.InitializeAsync();
-            
+
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
             if (AppChrome == null)
@@ -78,11 +71,11 @@ namespace Podcasts
             AppChrome.AppLaunched(args);
 
             MessageService.Start();
-            
+
             // Ensure the current window is active
             Window.Current.Activate();
         }
-        
+
         /// <summary>
         /// Invoked when application execution is being suspended.  Application state is saved
         /// without knowing whether the application will be terminated or resumed with the contents

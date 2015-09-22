@@ -22,7 +22,6 @@ namespace Podcasts.Dom
 
                 public CategoryNode(IXmlNode node) : base(node, Constants.ITunesNamespace)
                 {
-
                 }
 
                 internal static CategoryNode TryCreate(XmlNodeHost host)
@@ -48,7 +47,6 @@ namespace Podcasts.Dom
             {
                 public OwnerNode(IXmlNode node) : base(node, Constants.ITunesNamespace)
                 {
-
                 }
 
                 private string _email;
@@ -60,7 +58,6 @@ namespace Podcasts.Dom
 
             public ITunesNS(IXmlNode node) : base(node, Constants.ITunesNamespace)
             {
-
             }
 
             private string _author;
@@ -70,12 +67,13 @@ namespace Podcasts.Dom
             public YesEnum? Block => LazyLoadYesEnum(ref _block, "block");
 
             private IEnumerable<CategoryNode> _categories;
-            public IEnumerable<CategoryNode> Categories => 
+
+            public IEnumerable<CategoryNode> Categories =>
                 _categories ?? (_categories = SelectNodes("category").Select(node => new CategoryNode(node)).CacheResults());
 
             private ITunesImageNode _image;
             public ITunesImageNode Image => _image ?? (_image = ITunesImageNode.TryCreate(this));
-            
+
             private ExplicitEnum? _explicit;
             public ExplicitEnum? Explicit => LazyLoadExplicitEnum(ref _explicit, "explicit");
 
@@ -86,11 +84,12 @@ namespace Podcasts.Dom
             public Uri NewFeedUrl => LazyLoadUri(ref _newFeedUrl, "new-feed-url");
 
             private OwnerNode _owner;
+
             public OwnerNode Owner
             {
                 get
                 {
-                    if(_owner == null)
+                    if (_owner == null)
                     {
                         var node = SelectSingleNode("owner");
 
@@ -155,6 +154,7 @@ namespace Podcasts.Dom
         public uint? TimeToLive => LazyLoadUint(ref _ttl, "ttl");
 
         private IEnumerable<PodcastFeedItem> _items;
+
         public IEnumerable<PodcastFeedItem> Items =>
             _items ?? (_items = Channel.SelectNodes("item").Select(node => new PodcastFeedItem(node)).CacheResults());
 

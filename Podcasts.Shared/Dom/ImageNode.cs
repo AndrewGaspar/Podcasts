@@ -9,7 +9,6 @@ namespace Podcasts.Dom
 
         public ImageNode(IXmlNode node) : base(node)
         {
-
         }
 
         private Uri _url;

@@ -8,7 +8,6 @@ namespace Podcasts.Models
     {
         public Podcast()
         {
-
         }
 
         public Podcast(Podcast other)

@@ -60,9 +60,8 @@ namespace Podcasts.Tests
         private Uri GetRandomUrl(Random random, string end)
         {
             Func<int, string> rs = up => GetRandomString(random, 3, up);
-            
-            return new Uri($"http://{rs(3)}.{rs(7)}.{rs(3)}/{end}");
 
+            return new Uri($"http://{rs(3)}.{rs(7)}.{rs(3)}/{end}");
         }
 
         private async Task<List<Podcast>> AddPodcastsSeriallyAsync(PodcastsFile file, int numPodcasts)

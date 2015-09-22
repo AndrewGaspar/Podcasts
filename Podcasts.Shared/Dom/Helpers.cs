@@ -107,7 +107,7 @@ namespace Podcasts.Dom
 
         public static TimeSpan? TryParseITunesDuration(string value)
         {
-            if(value == null)
+            if (value == null)
             {
                 return null;
             }
@@ -120,19 +120,19 @@ namespace Podcasts.Dom
             var parts = maybeParts.Select(num => (int)num.Value).ToList();
 
             // SS
-            if(parts.Count == 1)
+            if (parts.Count == 1)
             {
                 return TimeSpan.FromSeconds(parts[0]);
             }
 
             // MM:SS
-            if(parts.Count == 2)
+            if (parts.Count == 2)
             {
                 return new TimeSpan(0, parts[0], parts[1]);
             }
 
             // HH:MM:SS
-            if(parts.Count == 3)
+            if (parts.Count == 3)
             {
                 return new TimeSpan(parts[0], parts[1], parts[2]);
             }

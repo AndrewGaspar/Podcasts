@@ -52,15 +52,15 @@
             <RowDefinition Height="64" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="48"/>
+            <ColumnDefinition Width="48" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <StackPanel 
-            x:Name="TopMenu" Orientation="Horizontal" 
+        <StackPanel
+            x:Name="TopMenu" Orientation="Horizontal"
             Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}"
             Grid.ColumnSpan="2">
             <Button Command="{Binding HamburgerCommand}" CommandParameter="{x:Bind HamburgerCommandParameter}" Style="{StaticResource ChromeButton}">
-                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE700;"/>
+                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE700;" />
             </Button>
             <TextBlock Text="{Binding PageTitle}" />
         </StackPanel>
@@ -69,7 +69,7 @@
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <Grid.Resources>
                         <Style TargetType="Button" BasedOn="{StaticResource ChromeButton}">
@@ -78,24 +78,24 @@
                     </Grid.Resources>
                     <StackPanel Orientation="Vertical" Height="Auto" Width="Auto" Grid.Row="0">
                         <Button x:Name="SplitViewHamburgerButton" Command="{x:Bind HamburgerCommand}" CommandParameter="{x:Bind HamburgerCommandParameter}">
-                            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE700;"/>
+                            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE700;" />
                         </Button>
                         <Button>
-                            <SymbolIcon Symbol="Add"/>
+                            <SymbolIcon Symbol="Add" />
                         </Button>
                         <Button>
                             <StackPanel Orientation="Horizontal">
-                                <SymbolIcon Symbol="People"/>
+                                <SymbolIcon Symbol="People" />
                                 <TextBlock VerticalAlignment="Center" FontSize="18.667">Podcasts</TextBlock>
                             </StackPanel>
                         </Button>
                         <Button>
-                            <SymbolIcon Symbol="MusicInfo"/>
+                            <SymbolIcon Symbol="MusicInfo" />
                         </Button>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Grid.Row="1">
                         <Button>
-                            <SymbolIcon Symbol="Setting"/>
+                            <SymbolIcon Symbol="Setting" />
                         </Button>
                     </StackPanel>
                 </Grid>
@@ -106,14 +106,13 @@
         </SplitView>
         <Grid Name="ControlBar" Background="{StaticResource AccentDark1Brush}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Horizontal" Grid.Column="0">
                 <Image Width="40" Grid.Column="0" Stretch="UniformToFill" Margin="5" Source="{Binding ViewModel.CurrentPodcast.Image}" />
                 <StackPanel Orientation="Vertical" Grid.Column="1">
-
                 </StackPanel>
             </StackPanel>
             <Grid Grid.Column="1">
@@ -128,16 +127,16 @@
             </Grid>
             <StackPanel Orientation="Horizontal" Grid.Column="2">
                 <Button Background="Transparent">
-                    <SymbolIcon Symbol="Previous"/>
+                    <SymbolIcon Symbol="Previous" />
                 </Button>
                 <Button Background="Transparent">
-                    <SymbolIcon Symbol="Play"/>
+                    <SymbolIcon Symbol="Play" />
                 </Button>
                 <Button Background="Transparent">
-                    <SymbolIcon Symbol="Next"/>
+                    <SymbolIcon Symbol="Next" />
                 </Button>
                 <Button Background="Transparent">
-                    <SymbolIcon Symbol="Volume"/>
+                    <SymbolIcon Symbol="Volume" />
                 </Button>
             </StackPanel>
         </Grid>

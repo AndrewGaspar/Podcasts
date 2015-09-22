@@ -1,20 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
-using Podcasts.Commands;
-using Windows.UI;
-using Windows.UI.ViewManagement;
-using Windows.UI.Xaml.Media;
 
 namespace Podcasts.ViewModels
 {
+    using Commands;
 
     public class AddPodcastCommand : CommandBase<string>
     {
         private bool _isAdding = false;
+
         public bool IsAdding
         {
             get
@@ -40,7 +37,7 @@ namespace Podcasts.ViewModels
 
         public override bool CanExecute(string _newPodcastUri)
         {
-            if(_newPodcastUri == "" || _newPodcastUri == null)
+            if (_newPodcastUri == "" || _newPodcastUri == null)
             {
                 return false;
             }
@@ -74,7 +71,7 @@ namespace Podcasts.ViewModels
     /// </summary>
     public class AppViewModel : BaseViewModel
     {
-        const string V1PodcastDatabase = "podcasts-v1.json-db";
+        private const string V1PodcastDatabase = "podcasts-v1.json-db";
 
         public AppViewModel(string databaseName = V1PodcastDatabase)
         {
@@ -91,6 +88,7 @@ namespace Podcasts.ViewModels
         public PodcastViewModel CurrentPodcast { get; private set; }
 
         private bool _isInitializing = false;
+
         public bool IsInitializing
         {
             get
@@ -121,7 +119,7 @@ namespace Podcasts.ViewModels
 
         public async Task InitializeAsync()
         {
-            if(IsInitialized)
+            if (IsInitialized)
             {
                 return;
             }

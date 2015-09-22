@@ -6,23 +6,23 @@
         <link>http://www.giantbomb.com</link>
         <copyright>2015 CBS Interactive</copyright>
         <language>en-us</language>
-        <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2750982-beastcast_itunes.png"/>
+        <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2750982-beastcast_itunes.png" />
         <itunes:subtitle xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">The Giant Bomb East team gathers to talk about the week in video games, their lives, and basically anything that interests them. All from New York City!</itunes:subtitle>
         <itunes:author xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">Giant Bomb</itunes:author>
         <itunes:summary xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">The Giant Bomb East team gathers to talk about the week in video games, their lives, and basically anything that interests them. All from New York City!</itunes:summary>
-        <atom:link href="http://www.giantbomb.com" rel="self" type="application/rss+xml" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        <atom:link href="http://www.giantbomb.com" rel="self" type="application/rss+xml" xmlns:atom="http://www.w3.org/2005/Atom" />
         <itunes:owner xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
             <itunes:name>Giant Bomb</itunes:name>
             <itunes:email>beastcast@giantbomb.com</itunes:email>
         </itunes:owner>
         <itunes:category text="Games &amp; Hobbies" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
-            <itunes:category text="Video Games"/>
+            <itunes:category text="Video Games" />
         </itunes:category>
         <itunes:category text="Technology" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
-            <itunes:category text="Gadgets"/>
+            <itunes:category text="Gadgets" />
         </itunes:category>
         <itunes:category text="Games &amp; Hobbies" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
-            <itunes:category text="Other Games"/>
+            <itunes:category text="Other Games" />
         </itunes:category>
         <itunes:explicit xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">no</itunes:explicit>
         <image>
@@ -34,7 +34,7 @@
         </image>
         <itunes:keywords xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">GiantBomb, Giant Bomb, Vinny Caravella, Alex Navarro, video games, PS4, WiiU, Xbox One, PC, PS Vita, 3DS</itunes:keywords>
         <media:copyright xmlns:media="http://search.yahoo.com/mrss/">2015 CBS Interactive</media:copyright>
-        <media:thumbnail url="http://static.giantbomb.com/uploads/original/0/31/2750982-beastcast_itunes.png" xmlns:media="http://search.yahoo.com/mrss/"/>
+        <media:thumbnail url="http://static.giantbomb.com/uploads/original/0/31/2750982-beastcast_itunes.png" xmlns:media="http://search.yahoo.com/mrss/" />
         <media:category scheme="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:media="http://search.yahoo.com/mrss/">Games &amp; Hobbies/Other Games</media:category>
         <media:category scheme="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:media="http://search.yahoo.com/mrss/">Technology/Gadgets</media:category>
         <item>
@@ -49,9 +49,9 @@
             <itunes:explicit xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">no</itunes:explicit>
             <itunes:duration xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">10465</itunes:duration>
             <itunes:keywords xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">GiantBomb, Giant Bomb, Vinny Caravella, Alex Navarro, video games, PS4, WiiU, Xbox One, PC, PS Vita, 3DS</itunes:keywords>
-            <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2769919-9197676191-19909.jpg"/>
-            <media:content fileSize="83843537" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1301/Ep10_-_The_Giant_Beastcast-07-30-2015-0633563054.mp3" xmlns:media="http://search.yahoo.com/mrss/"/>
-            <enclosure length="10465" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1301/Ep10_-_The_Giant_Beastcast-07-30-2015-0633563054.mp3"/>
+            <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2769919-9197676191-19909.jpg" />
+            <media:content fileSize="83843537" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1301/Ep10_-_The_Giant_Beastcast-07-30-2015-0633563054.mp3" xmlns:media="http://search.yahoo.com/mrss/" />
+            <enclosure length="10465" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1301/Ep10_-_The_Giant_Beastcast-07-30-2015-0633563054.mp3" />
         </item>
         <item>
             <title>The Giant Beastcast: Episode 09</title>
@@ -65,9 +65,9 @@
             <itunes:explicit xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">no</itunes:explicit>
             <itunes:duration xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">9932</itunes:duration>
             <itunes:keywords xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">GiantBomb, Giant Bomb, Vinny Caravella, Alex Navarro, video games, PS4, WiiU, Xbox One, PC, PS Vita, 3DS</itunes:keywords>
-            <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2767971-8297539355-27642.jpg"/>
-            <media:content fileSize="79573920" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1296/Ep09_-_The_Giant_Beastcast-07-24-2015-1819184957.mp3" xmlns:media="http://search.yahoo.com/mrss/"/>
-            <enclosure length="9932" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1296/Ep09_-_The_Giant_Beastcast-07-24-2015-1819184957.mp3"/>
+            <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2767971-8297539355-27642.jpg" />
+            <media:content fileSize="79573920" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1296/Ep09_-_The_Giant_Beastcast-07-24-2015-1819184957.mp3" xmlns:media="http://search.yahoo.com/mrss/" />
+            <enclosure length="9932" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1296/Ep09_-_The_Giant_Beastcast-07-24-2015-1819184957.mp3" />
         </item>
         <item>
             <title>The Giant Beastcast - Episode 08</title>
@@ -81,9 +81,9 @@
             <itunes:explicit xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">no</itunes:explicit>
             <itunes:duration xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">7966</itunes:duration>
             <itunes:keywords xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">GiantBomb, Giant Bomb, Vinny Caravella, Alex Navarro, video games, PS4, WiiU, Xbox One, PC, PS Vita, 3DS</itunes:keywords>
-            <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2766213-8479565907-Iwata.jpg"/>
-            <media:content fileSize="63849745" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1288/Ep08_-_The_Giant_Beastcast-07-17-2015-1749410108.mp3" xmlns:media="http://search.yahoo.com/mrss/"/>
-            <enclosure length="7966" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1288/Ep08_-_The_Giant_Beastcast-07-17-2015-1749410108.mp3"/>
+            <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2766213-8479565907-Iwata.jpg" />
+            <media:content fileSize="63849745" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1288/Ep08_-_The_Giant_Beastcast-07-17-2015-1749410108.mp3" xmlns:media="http://search.yahoo.com/mrss/" />
+            <enclosure length="7966" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1288/Ep08_-_The_Giant_Beastcast-07-17-2015-1749410108.mp3" />
         </item>
         <item>
             <title>The Giant Beastcast: Episode 07</title>
@@ -97,9 +97,9 @@
             <itunes:explicit xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">no</itunes:explicit>
             <itunes:duration xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">8494</itunes:duration>
             <itunes:keywords xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">GiantBomb, Giant Bomb, Vinny Caravella, Alex Navarro, video games, PS4, WiiU, Xbox One, PC, PS Vita, 3DS</itunes:keywords>
-            <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2764789-adco-videosixteenbynine1050.jpg"/>
-            <media:content fileSize="68071971" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1280/Ep07_-_The_Giant_Beastcast-07-09-2015-2694489247.mp3" xmlns:media="http://search.yahoo.com/mrss/"/>
-            <enclosure length="8494" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1280/Ep07_-_The_Giant_Beastcast-07-09-2015-2694489247.mp3"/>
+            <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2764789-adco-videosixteenbynine1050.jpg" />
+            <media:content fileSize="68071971" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1280/Ep07_-_The_Giant_Beastcast-07-09-2015-2694489247.mp3" xmlns:media="http://search.yahoo.com/mrss/" />
+            <enclosure length="8494" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1280/Ep07_-_The_Giant_Beastcast-07-09-2015-2694489247.mp3" />
         </item>
         <item>
             <title>The Giant Beastcast: Episode 06</title>
@@ -113,9 +113,9 @@
             <itunes:explicit xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">no</itunes:explicit>
             <itunes:duration xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">7703</itunes:duration>
             <itunes:keywords xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">GiantBomb, Giant Bomb, Vinny Caravella, Alex Navarro, video games, PS4, WiiU, Xbox One, PC, PS Vita, 3DS</itunes:keywords>
-            <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2763140-clipontie.jpg"/>
-            <media:content fileSize="61745412" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1275/Ep06_-_The_Giant_Beastcast-07-02-2015-0590391699.mp3" xmlns:media="http://search.yahoo.com/mrss/"/>
-            <enclosure length="7703" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1275/Ep06_-_The_Giant_Beastcast-07-02-2015-0590391699.mp3"/>
+            <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2763140-clipontie.jpg" />
+            <media:content fileSize="61745412" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1275/Ep06_-_The_Giant_Beastcast-07-02-2015-0590391699.mp3" xmlns:media="http://search.yahoo.com/mrss/" />
+            <enclosure length="7703" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1275/Ep06_-_The_Giant_Beastcast-07-02-2015-0590391699.mp3" />
         </item>
         <item>
             <title>The Giant Beastcast - Episode 05</title>
@@ -129,9 +129,9 @@
             <itunes:explicit xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">no</itunes:explicit>
             <itunes:duration xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">8627</itunes:duration>
             <itunes:keywords xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">GiantBomb, Giant Bomb, Vinny Caravella, Alex Navarro, video games, PS4, WiiU, Xbox One, PC, PS Vita, 3DS</itunes:keywords>
-            <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2761868-4158645939-thumb.jpg"/>
-            <media:content fileSize="69137848" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1267/Ep05_-_The_Giant_Beastcast-06-25-2015-6347126612.mp3" xmlns:media="http://search.yahoo.com/mrss/"/>
-            <enclosure length="8627" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1267/Ep05_-_The_Giant_Beastcast-06-25-2015-6347126612.mp3"/>
+            <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2761868-4158645939-thumb.jpg" />
+            <media:content fileSize="69137848" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1267/Ep05_-_The_Giant_Beastcast-06-25-2015-6347126612.mp3" xmlns:media="http://search.yahoo.com/mrss/" />
+            <enclosure length="8627" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1267/Ep05_-_The_Giant_Beastcast-06-25-2015-6347126612.mp3" />
         </item>
         <item>
             <title>The Giant Beastcast - Episode 04</title>
@@ -145,9 +145,9 @@
             <itunes:explicit xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">no</itunes:explicit>
             <itunes:duration xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">3210</itunes:duration>
             <itunes:keywords xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">GiantBomb, Giant Bomb, Vinny Caravella, Alex Navarro, video games, PS4, WiiU, Xbox One, PC, PS Vita, 3DS</itunes:keywords>
-            <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2760169-5846057036-lawnm.jpg"/>
-            <media:content fileSize="25800720" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1254/Ep04_-_The_Giant_Beastcast-06-19-2015-2288129610.mp3" xmlns:media="http://search.yahoo.com/mrss/"/>
-            <enclosure length="3210" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1254/Ep04_-_The_Giant_Beastcast-06-19-2015-2288129610.mp3"/>
+            <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2760169-5846057036-lawnm.jpg" />
+            <media:content fileSize="25800720" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1254/Ep04_-_The_Giant_Beastcast-06-19-2015-2288129610.mp3" xmlns:media="http://search.yahoo.com/mrss/" />
+            <enclosure length="3210" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1254/Ep04_-_The_Giant_Beastcast-06-19-2015-2288129610.mp3" />
         </item>
         <item>
             <title>The Giant Beastcast - Episode 03</title>
@@ -161,9 +161,9 @@
             <itunes:explicit xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">no</itunes:explicit>
             <itunes:duration xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">6604</itunes:duration>
             <itunes:keywords xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">GiantBomb, Giant Bomb, Vinny Caravella, Alex Navarro, video games, PS4, WiiU, Xbox One, PC, PS Vita, 3DS</itunes:keywords>
-            <itunes:image href="http://static.giantbomb.com/uploads/original/0/39/2757521-atreyu_falcor.jpg"/>
-            <media:content fileSize="52953042" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1237/Ep03_-_The_Giant_Beastcast-06-12-2015-0239772520.mp3" xmlns:media="http://search.yahoo.com/mrss/"/>
-            <enclosure length="6604" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1237/Ep03_-_The_Giant_Beastcast-06-12-2015-0239772520.mp3"/>
+            <itunes:image href="http://static.giantbomb.com/uploads/original/0/39/2757521-atreyu_falcor.jpg" />
+            <media:content fileSize="52953042" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1237/Ep03_-_The_Giant_Beastcast-06-12-2015-0239772520.mp3" xmlns:media="http://search.yahoo.com/mrss/" />
+            <enclosure length="6604" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1237/Ep03_-_The_Giant_Beastcast-06-12-2015-0239772520.mp3" />
         </item>
         <item>
             <title>The Giant Beastcast - Episode 02</title>
@@ -177,9 +177,9 @@
             <itunes:explicit xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">no</itunes:explicit>
             <itunes:duration xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">7876</itunes:duration>
             <itunes:keywords xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">GiantBomb, Giant Bomb, Vinny Caravella, Alex Navarro, video games, PS4, WiiU, Xbox One, PC, PS Vita, 3DS</itunes:keywords>
-            <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2754907-steampowered_computer.jpg"/>
-            <media:content fileSize="63126321" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1232/Ep02_-_The_Giant_Beastcast-06-04-2015-7672933712.mp3" xmlns:media="http://search.yahoo.com/mrss/"/>
-            <enclosure length="7876" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1232/Ep02_-_The_Giant_Beastcast-06-04-2015-7672933712.mp3"/>
+            <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2754907-steampowered_computer.jpg" />
+            <media:content fileSize="63126321" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1232/Ep02_-_The_Giant_Beastcast-06-04-2015-7672933712.mp3" xmlns:media="http://search.yahoo.com/mrss/" />
+            <enclosure length="7876" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1232/Ep02_-_The_Giant_Beastcast-06-04-2015-7672933712.mp3" />
         </item>
         <item>
             <title>The Giant Beastcast - Episode 01</title>
@@ -193,9 +193,9 @@
             <itunes:explicit xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">no</itunes:explicit>
             <itunes:duration xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">6889</itunes:duration>
             <itunes:keywords xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">GiantBomb, Giant Bomb, Vinny Caravella, Alex Navarro, video games, PS4, WiiU, Xbox One, PC, PS Vita, 3DS</itunes:keywords>
-            <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2752995-10712640_390751424411288_4321709960687955095_o.jpg"/>
-            <media:content fileSize="55233871" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1226/Ep01_-_The_Giant_Beastcast-05-29-2015-7881347619.mp3" xmlns:media="http://search.yahoo.com/mrss/"/>
-            <enclosure length="6889" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1226/Ep01_-_The_Giant_Beastcast-05-29-2015-7881347619.mp3"/>
+            <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2752995-10712640_390751424411288_4321709960687955095_o.jpg" />
+            <media:content fileSize="55233871" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1226/Ep01_-_The_Giant_Beastcast-05-29-2015-7881347619.mp3" xmlns:media="http://search.yahoo.com/mrss/" />
+            <enclosure length="6889" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1226/Ep01_-_The_Giant_Beastcast-05-29-2015-7881347619.mp3" />
         </item>
         <item>
             <title>The Giant Beastcast - Episode 0</title>
@@ -209,9 +209,9 @@
             <itunes:explicit xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">no</itunes:explicit>
             <itunes:duration xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">8250</itunes:duration>
             <itunes:keywords xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">GiantBomb, Giant Bomb, Vinny Caravella, Alex Navarro, video games, PS4, WiiU, Xbox One, PC, PS Vita, 3DS</itunes:keywords>
-            <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2751476-witcher3_movie.jpg"/>
-            <media:content fileSize="66227135" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1217/thegiantbeastcast_ep0_05222015-05-22-2015-2864898006.mp3" xmlns:media="http://search.yahoo.com/mrss/"/>
-            <enclosure length="8250" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1217/thegiantbeastcast_ep0_05222015-05-22-2015-2864898006.mp3"/>
+            <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2751476-witcher3_movie.jpg" />
+            <media:content fileSize="66227135" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1217/thegiantbeastcast_ep0_05222015-05-22-2015-2864898006.mp3" xmlns:media="http://search.yahoo.com/mrss/" />
+            <enclosure length="8250" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1217/thegiantbeastcast_ep0_05222015-05-22-2015-2864898006.mp3" />
         </item>
         <item>
             <title>The Giant Beastcast - Microphone Check</title>
@@ -225,9 +225,9 @@
             <itunes:explicit xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">no</itunes:explicit>
             <itunes:duration xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">262</itunes:duration>
             <itunes:keywords xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">GiantBomb, Giant Bomb, Vinny Caravella, Alex Navarro, video games, PS4, WiiU, Xbox One, PC, PS Vita, 3DS</itunes:keywords>
-            <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2750982-beastcast_itunes.png"/>
-            <media:content fileSize="6419846" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1215/The_Beastcast_-_Mic_Check-05-19-2015-4871576045.mp3" xmlns:media="http://search.yahoo.com/mrss/"/>
-            <enclosure length="262" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1215/The_Beastcast_-_Mic_Check-05-19-2015-4871576045.mp3"/>
+            <itunes:image href="http://static.giantbomb.com/uploads/original/0/31/2750982-beastcast_itunes.png" />
+            <media:content fileSize="6419846" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1215/The_Beastcast_-_Mic_Check-05-19-2015-4871576045.mp3" xmlns:media="http://search.yahoo.com/mrss/" />
+            <enclosure length="262" type="audio/mpeg" url="http://www.giantbomb.com/podcasts/download/1215/The_Beastcast_-_Mic_Check-05-19-2015-4871576045.mp3" />
         </item>
     </channel>
 </rss>

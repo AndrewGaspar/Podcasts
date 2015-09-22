@@ -12,12 +12,12 @@ namespace Podcasts.Transport
         {
             AttachEventHandlers();
         }
-        
+
         public void Stop()
         {
             DetachEventHandlers();
         }
-        
+
         private void OnServiceReady()
         {
             NotifyForeground();
@@ -29,16 +29,17 @@ namespace Podcasts.Transport
         }
 
         public event TypedEventHandler<BackgroundMessageTransport, PlayEpisodeRequest> PlaybackRequested;
+
         private void NotifyPlaybackRequested(PlayEpisodeRequest request)
         {
             var callback = PlaybackRequested;
-            if(callback != null)
+            if (callback != null)
             {
                 callback(this, request);
             }
         }
 
-        protected override void SendMessageRaw(ValueSet message) => 
+        protected override void SendMessageRaw(ValueSet message) =>
             BackgroundMediaPlayer.SendMessageToForeground(message);
 
         protected override void AttachEventHandlersInternal()

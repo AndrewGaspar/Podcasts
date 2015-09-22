@@ -21,19 +21,18 @@ namespace Podcasts.Transport
             DetachEventHandlers();
         }
 
-
         // Internal events
         private event ServiceReadyHandler ServiceReady;
 
         private void NotifyServiceReady(ServiceReadyNotification notification)
         {
             var ready = ServiceReady;
-            if(ready != null)
+            if (ready != null)
             {
                 ready(this, notification);
             }
         }
-        
+
         protected override void AttachEventHandlersInternal()
         {
             BackgroundMediaPlayer.MessageReceivedFromBackground += OnMessageReceived;
@@ -43,7 +42,7 @@ namespace Podcasts.Transport
         {
             BackgroundMediaPlayer.MessageReceivedFromBackground -= OnMessageReceived;
         }
-        
+
         private void SendPing()
         {
             SendMessage(new ServiceReadyRequest());
@@ -53,19 +52,19 @@ namespace Podcasts.Transport
         {
             SendMessage(request);
         }
-        
+
         public async Task PingServiceAsync()
         {
             var tcs = new TaskCompletionSource<int>();
-            
+
             ServiceReadyHandler callback = (sender, e) => tcs.SetResult(1);
-            
+
             ServiceReady += callback;
             SendPing();
             var result = await Task.WhenAny(tcs.Task, Task.Delay(10000));
             ServiceReady -= callback;
 
-            if(result != tcs.Task)
+            if (result != tcs.Task)
             {
                 throw new Exception("Background audio service ping timed out.");
             }

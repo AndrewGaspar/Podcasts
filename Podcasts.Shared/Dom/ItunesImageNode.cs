@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.Data.Xml.Dom;
 
 namespace Podcasts.Dom
@@ -11,7 +7,6 @@ namespace Podcasts.Dom
     {
         public ITunesImageNode(IXmlNode node) : base(node, Constants.ITunesNamespace)
         {
-
         }
 
         public static ITunesImageNode TryCreate(XmlNodeHost host)

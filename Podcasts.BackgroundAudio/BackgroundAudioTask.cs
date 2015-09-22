@@ -1,6 +1,4 @@
 ﻿using System.Threading;
-using Podcasts.Messages;
-using Podcasts.Transport;
 using Windows.ApplicationModel.Background;
 using Windows.Media;
 using Windows.Media.Core;
@@ -9,6 +7,9 @@ using Windows.Storage.Streams;
 
 namespace Podcasts.BackgroundAudio
 {
+    using Messages;
+    using Transport;
+
     public sealed class BackgroundAudioTask : IBackgroundTask
     {
         private SystemMediaTransportControls mediaTransportControls;
@@ -66,7 +67,7 @@ namespace Podcasts.BackgroundAudio
         private void OnCanceled(IBackgroundTaskInstance sender, BackgroundTaskCancellationReason reason)
         {
             messageTransport.Stop();
-            
+
             deferral.Complete();
         }
 
@@ -74,7 +75,7 @@ namespace Podcasts.BackgroundAudio
         {
             deferral.Complete();
         }
-        
+
         private void MediaPlayerStateChanged(MediaPlayer sender, object args)
         {
             //throw new NotImplementedException();
@@ -87,11 +88,12 @@ namespace Podcasts.BackgroundAudio
 
         private void MediaButtonPressed(SystemMediaTransportControls sender, SystemMediaTransportControlsButtonPressedEventArgs args)
         {
-            switch(args.Button)
+            switch (args.Button)
             {
                 case SystemMediaTransportControlsButton.Play:
                     BackgroundMediaPlayer.Current.Play();
                     break;
+
                 case SystemMediaTransportControlsButton.Pause:
                     BackgroundMediaPlayer.Current.Pause();
                     break;

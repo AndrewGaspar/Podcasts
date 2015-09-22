@@ -181,7 +181,7 @@ namespace Podcasts.Storage
             {
                 foreach (var obj in objects)
                 {
-                    if(test(obj))
+                    if (test(obj))
                     {
                         modification(obj);
                         return true;

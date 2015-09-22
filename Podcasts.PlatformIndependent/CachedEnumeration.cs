@@ -16,7 +16,7 @@ namespace Podcasts
 
         private class Enumerator : IEnumerator<T>
         {
-            const int UninitializedIndex = -1;
+            private const int UninitializedIndex = -1;
 
             private LazyCacheEnumerable<T> Enumerable;
             private int CurrentCacheIndex = UninitializedIndex;
@@ -57,7 +57,7 @@ namespace Podcasts
 
             public bool MoveNext()
             {
-                if(CurrentCacheIndex < (Enumerable.Cache.Count - 1))
+                if (CurrentCacheIndex < (Enumerable.Cache.Count - 1))
                 {
                     CurrentCacheIndex++;
                     return true;

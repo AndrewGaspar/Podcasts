@@ -9,7 +9,6 @@ namespace Podcasts.Storage
     {
         public PodcastsFile(string databaseName) : base(databaseName)
         {
-
         }
 
         public Task<IList<Podcast>> ReadPodcastsAsync() => ReadObjectsAsync();
@@ -20,7 +19,7 @@ namespace Podcasts.Storage
         {
             var newPodcast = new Podcast(obj);
 
-            if(newPodcast.Id == Guid.Empty)
+            if (newPodcast.Id == Guid.Empty)
             {
                 newPodcast.Id = Guid.NewGuid();
             }

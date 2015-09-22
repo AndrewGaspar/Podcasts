@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Podcasts.Dom;
 using Podcasts.Exceptions;
 using Podcasts.Models;
 using Podcasts.Storage;
-using Podcasts.ViewModels;
 
 namespace Podcasts
 {
@@ -26,7 +24,7 @@ namespace Podcasts
 
         private async Task LoadFileAsync()
         {
-            if(PodcastCache != null)
+            if (PodcastCache != null)
             {
                 return;
             }
@@ -36,7 +34,7 @@ namespace Podcasts
 
         private async Task SaveNewPodcastToFileAsync(Podcast podcast)
         {
-            if(PodcastCache.Any(cast => cast.Location == podcast.Location))
+            if (PodcastCache.Any(cast => cast.Location == podcast.Location))
             {
                 throw new DuplicatePodcastException(podcast.Location);
             }
@@ -56,7 +54,7 @@ namespace Podcasts
             PodcastCache.First(cast => cast.Id == podcast.Id).Update(podcast);
         }
 
-        class PodcastFeedEvaluation
+        private class PodcastFeedEvaluation
         {
             public PodcastFeed Feed;
             public Uri RedirectUri;
@@ -93,7 +91,7 @@ namespace Podcasts
 
             var results = await EvaluatePodcastFeedAsync(podcastUri);
 
-            if(results.RedirectUri != null)
+            if (results.RedirectUri != null)
             {
                 podcastUri = results.RedirectUri;
             }
@@ -125,7 +123,7 @@ namespace Podcasts
 
             var results = await EvaluatePodcastFeedAsync(podcast.Location);
 
-            if(results.RedirectUri != null)
+            if (results.RedirectUri != null)
             {
                 var record = new Podcast(podcast);
                 record.Location = results.RedirectUri;

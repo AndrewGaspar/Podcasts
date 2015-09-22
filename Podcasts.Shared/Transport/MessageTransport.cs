@@ -9,14 +9,14 @@ namespace Podcasts.Transport
 {
     internal class MessageParseHelper
     {
-
         private List<Func<ValueSet, bool>> ParseAttempts = new List<Func<ValueSet, bool>>();
 
         public MessageParseHelper Try<T>(Action<T> action)
         {
-            ParseAttempts.Add(vs => {
+            ParseAttempts.Add(vs =>
+            {
                 T message;
-                if(Helpers.TryParseMessage(vs, out message))
+                if (Helpers.TryParseMessage(vs, out message))
                 {
                     action(message);
                     return true;
@@ -30,9 +30,9 @@ namespace Podcasts.Transport
 
         public void Invoke(ValueSet vs)
         {
-            foreach(var attempt in ParseAttempts)
+            foreach (var attempt in ParseAttempts)
             {
-                if(attempt(vs))
+                if (attempt(vs))
                 {
                     return;
                 }
@@ -44,21 +44,24 @@ namespace Podcasts.Transport
     {
         public DateTime? LastMessageReceivedUtc { get; private set; } = null;
         public DateTime? LastMessageReceivedLocalized => LastMessageReceivedUtc?.ToLocalTime();
-        public TimeSpan? TimeSinceLastMessage 
+
+        public TimeSpan? TimeSinceLastMessage
             => LastMessageReceivedUtc.HasValue ? DateTime.UtcNow - LastMessageReceivedUtc : null;
 
         protected Mutex Mutex = new Mutex();
         private bool EventHandlersAttached = false;
-        
+
         protected abstract void HandleMessage(ValueSet message);
+
         protected void OnMessageReceived(object sender, MediaPlayerDataReceivedEventArgs e)
         {
             LastMessageReceivedUtc = DateTime.UtcNow;
-            
+
             HandleMessage(e.Data);
         }
 
         protected abstract void AttachEventHandlersInternal();
+
         protected void AttachEventHandlers()
         {
             if (!EventHandlersAttached)
@@ -76,6 +79,7 @@ namespace Podcasts.Transport
         }
 
         protected abstract void DetachEventHandlersInternal();
+
         protected void DetachEventHandlers()
         {
             if (EventHandlersAttached)

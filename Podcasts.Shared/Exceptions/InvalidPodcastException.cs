@@ -12,7 +12,5 @@ namespace Podcasts.Exceptions
             Reason = reason;
             Podcast = podcast;
         }
-
-
     }
 }
