@@ -1,9 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Specialized;
+using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
-using Podcasts.ViewModels;
 
 namespace Podcasts.Tests
 {
+    using ViewModels;
+
     [TestClass]
     public class ViewModelTests
     {
@@ -23,9 +25,9 @@ namespace Podcasts.Tests
             Assert.IsTrue(AppViewModel.AddPodcastCommand.CanExecute(podcastUri));
 
             var podcastsChanged = false;
-            AppViewModel.PropertyChanged += (sender, args) =>
+            AppViewModel.Podcasts.CollectionChanged += (sender, args) =>
             {
-                if (args.PropertyName == nameof(AppViewModel.Podcasts))
+                if (args.Action == NotifyCollectionChangedAction.Add)
                 {
                     podcastsChanged = true;
                 }
