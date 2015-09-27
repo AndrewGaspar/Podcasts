@@ -24,8 +24,11 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="{Binding Title}" Grid.Column="0" />
-                        <TextBlock Text="{Binding Duration}" Grid.Column="1" />
+                        <TextBlock Grid.Column="0"
+                                   Text="{Binding Title}" />
+                        <TextBlock Grid.Column="1"
+                                   Text="{Binding Duration, Converter={StaticResource PodcastDurationToString}}"
+                                   HorizontalAlignment="Right" />
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

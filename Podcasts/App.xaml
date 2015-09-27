@@ -17,6 +17,8 @@
                         <converters:InvertBooleanConverter />
                         <converters:BooleanToVisibilityConverter />
                     </converters:ArregateConverter>
+                    <converters:PodcastDurationConverter x:Key="PodcastDurationToString">
+                    </converters:PodcastDurationConverter>
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
