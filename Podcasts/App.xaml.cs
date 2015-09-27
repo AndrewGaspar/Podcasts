@@ -18,18 +18,6 @@ namespace Podcasts
 
         public AppViewModel ViewModel => AppViewModel;
 
-        private Chrome AppChrome
-        {
-            get
-            {
-                return Window.Current.Content as Chrome;
-            }
-            set
-            {
-                Window.Current.Content = value;
-            }
-        }
-
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -54,10 +42,10 @@ namespace Podcasts
 
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
-            if (AppChrome == null)
+            if (Chrome.Current == null)
             {
                 // Create the page chrome to act as the navigation context and navigate to the first page
-                var chrome = new Chrome();
+                var chrome = Chrome.CreateChrome();
 
                 if (args.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
@@ -65,10 +53,10 @@ namespace Podcasts
                 }
 
                 // Place the frame in the current Window
-                AppChrome = chrome;
+                Window.Current.Content = chrome;
             }
 
-            AppChrome.AppLaunched(args);
+            Chrome.Current.AppLaunched(args);
 
             MessageService.Start();
 

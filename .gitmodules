@@ -1,3 +1,6 @@
 [submodule "AccentResources"]
 	path = AccentResources
 	url = https://github.com/AndrewGaspar/AccentResources
+[submodule "MediaFoundation"]
+	path = MediaFoundation
+	url = git@github.com:AndrewGaspar/MediaFoundation.git

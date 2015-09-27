@@ -103,6 +103,10 @@
       <DependentUpon>Chrome.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\AppPage.cs" />
+    <Compile Include="Views\PodcastPage.xaml.cs">
+      <DependentUpon>PodcastPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PodcastsListPage.xaml.cs">
       <DependentUpon>PodcastsListPage.xaml</DependentUpon>
     </Compile>
@@ -131,6 +135,10 @@
     <Page Include="Chrome.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PodcastPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PodcastsListPage.xaml">
       <SubType>Designer</SubType>

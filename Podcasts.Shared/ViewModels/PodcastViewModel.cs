@@ -1,15 +1,59 @@
 ﻿using System;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
-using Podcasts.Dom;
-using Podcasts.Models;
 
 namespace Podcasts.ViewModels
 {
+    using Dom;
+    using Models;
+    using Collections;
+
+    public class EpisodeList : IncrementalLoadingCollection<EpisodeViewModel>
+    {
+        private PodcastFeed Feed;
+
+        public EpisodeList(PodcastFeed feed)
+        {
+            Feed = feed;
+        }
+
+        protected override uint MaxItems
+        {
+            get
+            {
+                return (uint)Feed.Items.Count;
+            }
+        }
+
+        protected override async Task<EpisodeViewModel> LoadItemAsync(uint index)
+        {
+            var episodeViewModel = new EpisodeViewModel(Feed.Items[(int)index]);
+            await episodeViewModel.UpdateEpisodeAsync();
+            return episodeViewModel;
+        }
+    }
+
     public class PodcastViewModel : BaseViewModel
     {
         private Podcast Podcast;
         private PodcastManager Manager;
-        private PodcastFeed Feed;
+        internal PodcastFeed Feed;
+
+        private EpisodeList _episodes;
+
+        public EpisodeList Episodes
+        {
+            get
+            {
+                return _episodes;
+            }
+            private set
+            {
+                _episodes = value;
+                NotifyPropertyChanged();
+            }
+        }
 
         internal PodcastViewModel(PodcastManager manager, Podcast podcast)
         {
@@ -22,20 +66,7 @@ namespace Podcasts.ViewModels
             Podcast = podcast;
         }
 
-        private string _title;
-
-        public string Title
-        {
-            get
-            {
-                return _title;
-            }
-            private set
-            {
-                _title = value;
-                NotifyPropertyChanged();
-            }
-        }
+        public string Title => Podcast.Title;
 
         public Uri Image => Podcast.Image;
 
@@ -61,6 +92,8 @@ namespace Podcasts.ViewModels
             try
             {
                 Feed = await Manager.GetPodcastFeedAsync(Podcast);
+
+                Episodes = new EpisodeList(Feed);
             }
             finally
             {

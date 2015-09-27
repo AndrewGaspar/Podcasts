@@ -7,13 +7,21 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Page.Resources>
-        <DataTemplate x:Key="PodcastGridItemTemplate">
-            <StackPanel Orientation="Vertical" Width="Auto" Height="300">
-                <Image Source="{Binding Image}" Width="140" Margin="5" Stretch="UniformToFill" />
-            </StackPanel>
-        </DataTemplate>
-    </Page.Resources>
-
-    <GridView Name="PodcastGridView" ItemsSource="{Binding ViewModel.Podcasts}" ItemTemplate="{StaticResource PodcastGridItemTemplate}" />
+    <StackPanel>
+        <TextBlock Style="{StaticResource HeaderTextBlockStyle}">Podcasts</TextBlock>
+        <GridView Name="PodcastGridView" ItemsSource="{Binding ViewModel.Podcasts}">
+            <GridView.ItemTemplate>
+                <DataTemplate>
+                    <Button Background="Transparent"
+                            Command="{Binding DataContext.NavigateToPodcastPage, ElementName=PodcastGridView}"
+                            CommandParameter="{Binding}">
+                        <StackPanel Orientation="Vertical" Width="Auto" Height="300">
+                            <Image Source="{Binding Image}" Width="140" Margin="5" Stretch="UniformToFill" />
+                            <TextBlock Text="{Binding Title}" />
+                        </StackPanel>
+                    </Button>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+    </StackPanel>
 </Page>

@@ -153,9 +153,9 @@ namespace Podcasts.Dom
         private uint? _ttl;
         public uint? TimeToLive => LazyLoadUint(ref _ttl, "ttl");
 
-        private IEnumerable<PodcastFeedItem> _items;
+        private IReadOnlyList<PodcastFeedItem> _items;
 
-        public IEnumerable<PodcastFeedItem> Items =>
+        public IReadOnlyList<PodcastFeedItem> Items =>
             _items ?? (_items = Channel.SelectNodes("item").Select(node => new PodcastFeedItem(node)).CacheResults());
 
         private ImageNode TryGetImageNode()

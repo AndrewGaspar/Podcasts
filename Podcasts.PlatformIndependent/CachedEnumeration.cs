@@ -1,13 +1,48 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Podcasts
 {
-    public class LazyCacheEnumerable<T> : IEnumerable<T>
+    public class LazyCacheEnumerable<T> : IEnumerable<T>, IReadOnlyList<T>
     {
         internal List<T> Cache = new List<T>();
         internal IEnumerator<T> InternalEnumerator = null;
+
+        public int Count
+        {
+            get
+            {
+                if (InternalEnumerator != null)
+                {
+                    return ((IEnumerable<T>)this).Count();
+                }
+                else
+                {
+                    return Cache.Count;
+                }
+            }
+        }
+
+        public T this[int index]
+        {
+            get
+            {
+                if (this.Cache.Count > index)
+                {
+                    return Cache[index];
+                }
+                else if (InternalEnumerator == null)
+                {
+                    throw new IndexOutOfRangeException();
+                }
+                else
+                {
+                    return this.ElementAt(index);
+                }
+            }
+        }
 
         public LazyCacheEnumerable(IEnumerable<T> enumerable)
         {
@@ -57,6 +92,11 @@ namespace Podcasts
 
             public bool MoveNext()
             {
+                if (Enumerable.InternalEnumerator == null)
+                {
+                    return false;
+                }
+
                 if (CurrentCacheIndex < (Enumerable.Cache.Count - 1))
                 {
                     CurrentCacheIndex++;
@@ -66,6 +106,8 @@ namespace Podcasts
                 var result = Enumerable.InternalEnumerator.MoveNext();
                 if (!result)
                 {
+                    Enumerable.InternalEnumerator.Dispose();
+                    Enumerable.InternalEnumerator = null;
                     return false;
                 }
 

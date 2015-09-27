@@ -68,11 +68,35 @@ namespace Podcasts
         }
     }
 
+    public class NavigationCommand<PageT, Args> : CommandBase<Args>
+        where PageT : Page
+    {
+        public override bool CanExecute(Args parameter) => Chrome.Current != null;
+
+        public override void Execute(Args parameter)
+        {
+            Chrome.Current.NavigateTo(typeof(PageT), parameter);
+        }
+    }
+
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class Chrome : Page
     {
+        private static Chrome _current;
+        public static Chrome Current => _current;
+
+        public static Chrome CreateChrome()
+        {
+            if (_current != null)
+            {
+                return _current;
+            }
+
+            return _current = new Chrome();
+        }
+
         public App App => (App)Application.Current;
 
         public AppViewModel ViewModel => App.ViewModel;
