@@ -17,6 +17,7 @@ namespace Podcasts
     using Messages;
     using Models;
     using ViewModels;
+    using Windows.UI.Core;
 
     public enum SplitViewState
     {
@@ -115,6 +116,40 @@ namespace Podcasts
             this.DataContext = this;
 
             this.RootFrame.NavigationFailed += this.OnNavigationFailed;
+
+            this.RootFrame.Navigating += RootFrame_Navigating;
+
+            this.RootFrame.Navigated += RootFrame_Navigated;
+        }
+
+        private void RootFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+            var navManager = SystemNavigationManager.GetForCurrentView();
+
+            if (!this.RootFrame.CanGoBack)
+            {
+                navManager.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+            }
+            else
+            {
+                navManager.BackRequested += NavManager_BackRequested;
+                navManager.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+            }
+        }
+
+        private void NavManager_BackRequested(object sender, BackRequestedEventArgs e)
+        {
+            if (this.RootFrame.CanGoBack)
+            {
+                e.Handled = true;
+                this.RootFrame.GoBack();
+            }
+        }
+
+        private void RootFrame_Navigating(object sender, NavigatingCancelEventArgs e)
+        {
+            var navManager = SystemNavigationManager.GetForCurrentView();
+            navManager.BackRequested -= NavManager_BackRequested;
         }
 
         public void AppLaunched(LaunchActivatedEventArgs e)
