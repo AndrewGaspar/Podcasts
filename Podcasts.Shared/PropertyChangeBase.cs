@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Podcasts
 {
-    public class PropertyChangeBase
+    public class PropertyChangeBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

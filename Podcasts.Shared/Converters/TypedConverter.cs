@@ -28,7 +28,7 @@ namespace Podcasts.Converters
 
         public override object Convert(object value, Type targetType, object parameter, string language)
         {
-            Debug.Assert(value is From);
+            Debug.Assert(value is From || value == null);
             Debug.Assert(targetType.Equals(typeof(To)));
 
             return Convert((From)value, parameter, language);
@@ -38,7 +38,7 @@ namespace Podcasts.Converters
 
         public override object ConvertBack(object value, Type targetType, object parameter, string language)
         {
-            Debug.Assert(value is To);
+            Debug.Assert(value is To || value == null);
             Debug.Assert(targetType.Equals(typeof(From)));
 
             return ConvertBack((To)value, parameter, language);

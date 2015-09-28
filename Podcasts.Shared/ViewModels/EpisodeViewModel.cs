@@ -1,11 +1,9 @@
 ﻿using System;
-using Windows.Media.Core;
+using System.Threading.Tasks;
 
 namespace Podcasts.ViewModels
 {
-    using System.Threading.Tasks;
     using Dom;
-    using Utilities;
 
     public class EpisodeViewModel : BaseViewModel
     {
@@ -43,6 +41,21 @@ namespace Podcasts.ViewModels
             }
         }
 
+        private bool _isUpdating = false;
+
+        public bool IsUpdating
+        {
+            get
+            {
+                return _isUpdating;
+            }
+            private set
+            {
+                _isUpdating = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         public EpisodeViewModel(PodcastFeedItem item)
         {
             Guid = item.Guid;
@@ -63,9 +76,23 @@ namespace Podcasts.ViewModels
 
         internal async Task UpdateEpisodeAsync()
         {
-            if (!Duration.HasValue)
+            if (IsUpdating)
             {
-                Duration = await GetDurationAsync();
+                return;
+            }
+
+            IsUpdating = true;
+
+            try
+            {
+                if (!Duration.HasValue)
+                {
+                    Duration = await GetDurationAsync();
+                }
+            }
+            finally
+            {
+                IsUpdating = false;
             }
         }
     }

@@ -29,7 +29,7 @@ namespace Podcasts.ViewModels
         protected override async Task<EpisodeViewModel> LoadItemAsync(uint index)
         {
             var episodeViewModel = new EpisodeViewModel(Feed.Items[(int)index]);
-            await episodeViewModel.UpdateEpisodeAsync();
+            episodeViewModel.UpdateEpisodeAsync(); // don't care to block on this - would rather display available information while waiting
             return episodeViewModel;
         }
     }
