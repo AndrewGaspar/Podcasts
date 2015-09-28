@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 
 namespace Podcasts.ViewModels
 {
+    using System.Threading;
     using Dom;
 
     public class EpisodeViewModel : BaseViewModel
@@ -63,18 +64,22 @@ namespace Podcasts.ViewModels
             _source = item.Enclosure.Url;
         }
 
-        private Task<TimeSpan> GetDurationAsync()
+        private Task<TimeSpan?> GetDurationAsync(CancellationToken token)
         {
-            return Task.Run(async () =>
+            return Task.Run<TimeSpan?>(async () =>
             {
+                if (token.IsCancellationRequested) return null;
+
                 using (var sourceReader = await MediaFoundation.SourceReader.CreateFromUriAsync(_source))
                 {
+                    if (token.IsCancellationRequested) return null;
+
                     return sourceReader.GetDurationBlocking();
                 }
             });
         }
 
-        internal async Task UpdateEpisodeAsync()
+        internal async Task UpdateEpisodeAsync(CancellationToken token)
         {
             if (IsUpdating)
             {
@@ -87,7 +92,7 @@ namespace Podcasts.ViewModels
             {
                 if (!Duration.HasValue)
                 {
-                    Duration = await GetDurationAsync();
+                    Duration = await GetDurationAsync(token);
                 }
             }
             finally

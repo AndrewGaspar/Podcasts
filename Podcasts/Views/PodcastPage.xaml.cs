@@ -32,5 +32,12 @@ namespace Podcasts.Views
 
             this.DataContext = this;
         }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+
+            ViewModel.Episodes.CancelUpdating();
+        }
     }
 }

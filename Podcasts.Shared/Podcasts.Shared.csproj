@@ -130,6 +130,7 @@
     <Compile Include="Dom\PodcastFeed.cs" />
     <Compile Include="Storage\PodcastsFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\TaskExtensions.cs" />
     <Compile Include="Utilities\TypedEventHandlerUtilities.cs" />
     <Compile Include="ViewModels\AppViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />

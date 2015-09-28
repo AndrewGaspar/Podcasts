@@ -1,17 +1,18 @@
 ﻿using System;
-using System.Collections.ObjectModel;
-using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Podcasts.ViewModels
 {
+    using Collections;
     using Dom;
     using Models;
-    using Collections;
+    using Utilities;
 
     public class EpisodeList : IncrementalLoadingCollection<EpisodeViewModel>
     {
         private PodcastFeed Feed;
+        private CancellationTokenSource TokenSource = new CancellationTokenSource();
 
         public EpisodeList(PodcastFeed feed)
         {
@@ -26,11 +27,17 @@ namespace Podcasts.ViewModels
             }
         }
 
-        protected override async Task<EpisodeViewModel> LoadItemAsync(uint index)
+        protected override Task<EpisodeViewModel> LoadItemAsync(uint index)
         {
             var episodeViewModel = new EpisodeViewModel(Feed.Items[(int)index]);
-            episodeViewModel.UpdateEpisodeAsync(); // don't care to block on this - would rather display available information while waiting
-            return episodeViewModel;
+            // don't care to block on this - would rather display available information while waiting
+            episodeViewModel.UpdateEpisodeAsync(TokenSource.Token).Ignore();
+            return Task.FromResult(episodeViewModel);
+        }
+
+        public void CancelUpdating()
+        {
+            TokenSource.Cancel();
         }
     }
 
