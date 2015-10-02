@@ -12,9 +12,7 @@ namespace Podcasts
     /// </summary>
     public sealed partial class App : Application
     {
-        public ForeroundMessageTransport MessageService = new ForeroundMessageTransport();
-
-        private AppViewModel AppViewModel = new AppViewModel();
+        private AppViewModel AppViewModel = AppViewModel.Current;
 
         public AppViewModel ViewModel => AppViewModel;
 
@@ -58,8 +56,6 @@ namespace Podcasts
 
             Chrome.Current.AppLaunched(args);
 
-            MessageService.Start();
-
             // Ensure the current window is active
             Window.Current.Activate();
         }
@@ -74,7 +70,9 @@ namespace Podcasts
         private void OnSuspending(object sender, SuspendingEventArgs e)
         {
             var deferral = e.SuspendingOperation.GetDeferral();
-            MessageService.Stop();
+
+            // suspend here
+
             deferral.Complete();
         }
     }

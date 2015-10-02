@@ -16,7 +16,7 @@
             <Image Source="{Binding ViewModel.Image}" Width="100" Height="100" />
             <TextBlock Text="{Binding ViewModel.Title}" />
         </StackPanel>
-        <ListView Grid.Row="1" ItemsSource="{Binding ViewModel.Episodes}" IncrementalLoadingThreshold="1.5">
+        <ListView Grid.Row="1" ItemsSource="{Binding ViewModel.Episodes}" IncrementalLoadingThreshold="1.5" DoubleTapped="ListView_DoubleTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>

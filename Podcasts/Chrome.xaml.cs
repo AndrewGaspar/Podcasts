@@ -172,48 +172,5 @@ namespace Podcasts
         {
             throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
         }
-
-        private async Task AddPodcastAsync(Uri url)
-        {
-            var document = await PodcastFeed.LoadFeedAsync(url);
-
-            var title = document.Title;
-
-            //if(title != null) CurrentPodcastName.Text = title;
-
-            var firstItem = document.Items.First();
-
-            var enclosure = firstItem.Enclosure;
-
-            if (enclosure == null)
-            {
-                var dialog = new MessageDialog("Item has no content.", "Error!");
-                await dialog.ShowAsync();
-                return;
-            }
-
-            var itunesImage = firstItem.ITunes.Image;
-
-            var episodeTitle = firstItem.Title;
-
-            var location = enclosure.Url;
-
-            var image = itunesImage?.Href;
-
-            var episode = new Episode()
-            {
-                Title = episodeTitle,
-                Location = location,
-                Image = image,
-                PodcastName = firstItem.Title,
-            };
-
-            if (MediaPlayerState.Closed == BackgroundMediaPlayer.Current.CurrentState)
-            {
-                await App.MessageService.PingServiceAsync();
-            }
-
-            App.MessageService.RequestPlayback(new PlayEpisodeRequest { Episode = episode });
-        }
     }
 }

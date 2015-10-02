@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace Podcasts.ViewModels
 {
     using Commands;
+    using Transport;
 
     public class AddPodcastCommand : CommandBase<string>
     {
@@ -73,12 +74,15 @@ namespace Podcasts.ViewModels
     {
         private const string V1PodcastDatabase = "podcasts-v1.json-db";
 
-        public AppViewModel(string databaseName = V1PodcastDatabase)
+        public static AppViewModel Current { get; } = new AppViewModel(V1PodcastDatabase);
+
+        public AppViewModel(string databaseName)
         {
             AddPodcastCommand = new AddPodcastCommand(viewModel: this);
         }
 
         private PodcastManager Manager = new PodcastManager(V1PodcastDatabase);
+        internal ForeroundMessageTransport Transport { get; } = new ForeroundMessageTransport();
 
         private ObservableCollection<PodcastViewModel> _podcasts = new ObservableCollection<PodcastViewModel>();
         public ObservableCollection<PodcastViewModel> Podcasts => _podcasts;

@@ -1,31 +1,26 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Podcasts.ViewModels
 {
-    using System.Threading;
     using Dom;
 
     public class EpisodeViewModel : BaseViewModel
     {
-        private Uri _source;
+        #region Readonly Properties
+
+        public Uri Source { get; private set; }
 
         public string Guid { get; private set; }
 
-        private string _title;
+        public string Title { get; private set; }
 
-        public string Title
-        {
-            get
-            {
-                return _title;
-            }
-            private set
-            {
-                _title = value;
-                NotifyPropertyChanged();
-            }
-        }
+        public Uri Image { get; private set; }
+
+        #endregion Readonly Properties
+
+        #region Awaits additional information
 
         private TimeSpan? _duration;
 
@@ -57,11 +52,14 @@ namespace Podcasts.ViewModels
             }
         }
 
+        #endregion Awaits additional information
+
         public EpisodeViewModel(PodcastFeedItem item)
         {
             Guid = item.Guid;
             Title = item.Title;
-            _source = item.Enclosure.Url;
+            Image = item.ITunes?.Image?.Href;
+            Source = item.Enclosure.Url;
         }
 
         private Task<TimeSpan?> GetDurationAsync(CancellationToken token)
@@ -70,7 +68,7 @@ namespace Podcasts.ViewModels
             {
                 if (token.IsCancellationRequested) return null;
 
-                using (var sourceReader = await MediaFoundation.SourceReader.CreateFromUriAsync(_source))
+                using (var sourceReader = await MediaFoundation.SourceReader.CreateFromUriAsync(Source))
                 {
                     if (token.IsCancellationRequested) return null;
 

@@ -7,6 +7,7 @@ namespace Podcasts.ViewModels
     using Collections;
     using Dom;
     using Models;
+    using Commands;
     using Utilities;
 
     public class EpisodeList : IncrementalLoadingCollection<EpisodeViewModel>
@@ -71,6 +72,7 @@ namespace Podcasts.ViewModels
 
             Manager = manager;
             Podcast = podcast;
+            PlayEpisode = new PlayEpisodeCommand(this);
         }
 
         public string Title => Podcast.Title;
@@ -107,5 +109,7 @@ namespace Podcasts.ViewModels
                 IsRefreshing = false;
             }
         }
+
+        public PlayEpisodeCommand PlayEpisode { get; private set; }
     }
 }

@@ -7,6 +7,7 @@ namespace Podcasts.Views
 {
     using System.Diagnostics;
     using ViewModels;
+    using Windows.UI.Xaml.Input;
 
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -38,6 +39,20 @@ namespace Podcasts.Views
             base.OnNavigatedFrom(e);
 
             ViewModel.Episodes.CancelUpdating();
+        }
+
+        private void ListView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        {
+            var listView = sender as ListView;
+
+            var episode = listView.SelectedItem as EpisodeViewModel;
+
+            if (ViewModel.PlayEpisode.CanExecute(episode))
+            {
+                ViewModel.PlayEpisode.Execute(episode);
+            }
+
+            e.Handled = true;
         }
     }
 }
