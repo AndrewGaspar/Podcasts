@@ -13,12 +13,25 @@
                 <ResourceDictionary>
                     <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
                     <converters:InvertBooleanConverter x:Key="InvertBoolean" />
-                    <converters:ArregateConverter x:Key="InvertBooleanToVisibility">
+                    <converters:AggregateConverter x:Key="InvertBooleanToVisibility">
                         <converters:InvertBooleanConverter />
                         <converters:BooleanToVisibilityConverter />
-                    </converters:ArregateConverter>
-                    <converters:PodcastDurationConverter x:Key="PodcastDurationToString">
-                    </converters:PodcastDurationConverter>
+                    </converters:AggregateConverter>
+                    <converters:PodcastDurationConverter x:Key="PodcastDurationToString" />
+                    <converters:AggregateConverter x:Key="NullableTimeSpanToSeconds">
+                        <converters:NullableTimeSpanToTimeSpanConverter />
+                        <converters:TimeSpanToSecondsConverter />
+                        <converters:IntToDoubleConverter />
+                    </converters:AggregateConverter>
+                    <converters:AggregateConverter x:Key="SecondsToString">
+                        <converters:InvertedConverter>
+                            <converters:AggregateConverter>
+                                <converters:TimeSpanToSecondsConverter />
+                                <converters:IntToDoubleConverter />
+                            </converters:AggregateConverter>
+                        </converters:InvertedConverter>
+                        <converters:PodcastDurationConverter />
+                    </converters:AggregateConverter>
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

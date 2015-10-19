@@ -26,10 +26,21 @@
             <VisualStateGroup x:Name="WindowSizeStates">
                 <VisualState>
                     <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1040" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MainSplitView.DisplayMode" Value="CompactInline" />
+                        <Setter Target="MainSplitView.IsPaneOpen" Value="true" />
+                        <Setter Target="TopMenu.Visibility" Value="Collapsed" />
+                        <Setter Target="SplitViewHamburgerButton.Visibility" Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="720" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="MainSplitView.DisplayMode" Value="CompactOverlay" />
+                        <Setter Target="MainSplitView.DisplayMode" Value="CompactInline" />
                         <Setter Target="TopMenu.Visibility" Value="Collapsed" />
                         <Setter Target="SplitViewHamburgerButton.Visibility" Value="Visible" />
                     </VisualState.Setters>
@@ -144,9 +155,22 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0">0:00</TextBlock>
-                <Slider Grid.Column="1"></Slider>
-                <TextBlock Grid.Column="2">12:34</TextBlock>
+                <TextBlock
+                    Grid.Column="0"
+                    Text="{Binding ViewModel.CurrentPodcastPosition,
+                        Converter={StaticResource PodcastDurationToString}}" />
+                <Slider
+                    x:Name="CurrentPodcastSlider"
+                    Grid.Column="1"
+                    Maximum="{Binding ViewModel.CurrentPodcastDuration,
+                        Converter={StaticResource NullableTimeSpanToSeconds}}"
+                    Minimum="0"
+                    ThumbToolTipValueConverter="{StaticResource SecondsToString}">
+                </Slider>
+                <TextBlock
+                    Grid.Column="2"
+                    Text="{Binding ViewModel.CurrentPodcastDuration,
+                        Converter={StaticResource PodcastDurationToString}}" />
             </Grid>
             <StackPanel Orientation="Horizontal" Grid.Column="2">
                 <Button Background="Transparent">

@@ -97,10 +97,14 @@
     <Compile Include="Collections\IncrementalLoadingCollection.cs" />
     <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Commands\PlayEpisodeCommand.cs" />
-    <Compile Include="Converters\ArregateConverter.cs" />
+    <Compile Include="Converters\AggregateConverter.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\IntToDoubleConverter.cs" />
     <Compile Include="Converters\InvertBooleanConverter.cs" />
+    <Compile Include="Converters\InvertedConverter.cs" />
+    <Compile Include="Converters\NullToDefaultConverter.cs" />
     <Compile Include="Converters\PodcastDurationConverter.cs" />
+    <Compile Include="Converters\TimeSpanToSecondsConverter.cs" />
     <Compile Include="Converters\TypedConverter.cs" />
     <Compile Include="Dom\Constants.cs" />
     <Compile Include="Dom\ExplicitEnum.cs" />

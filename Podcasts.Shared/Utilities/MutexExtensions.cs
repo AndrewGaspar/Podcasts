@@ -57,5 +57,15 @@ namespace Podcasts.Utilities
                 return 1;
             });
         }
+
+        public static Task<T> ExclusionRegionAsync<T>(this SemaphoreSlim semaphore, Func<T> func) =>
+            semaphore.ExclusionRegionAsync(() => Task.FromResult(func()));
+
+        public static Task ExclusionRegionAsync(this SemaphoreSlim semaphore, Action action) =>
+            semaphore.ExclusionRegionAsync(() =>
+            {
+                action();
+                return 1;
+            });
     }
 }

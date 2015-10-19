@@ -9,7 +9,7 @@ namespace Podcasts.Tests
     [TestClass]
     public class ViewModelTests
     {
-        private AppViewModel AppViewModel = new AppViewModel();
+        private AppViewModel AppViewModel = new AppViewModel("test-database.xml");
 
         [TestInitialize]
         public async Task Initialize()

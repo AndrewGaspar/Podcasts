@@ -1,23 +1,21 @@
 ﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
 using Windows.ApplicationModel.Activation;
-using Windows.Media.Playback;
-using Windows.UI.Popups;
+using Windows.UI.Core;
+using Windows.UI.Input;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace Podcasts
 {
+    using System.ComponentModel;
     using Commands;
-    using Dom;
-    using Messages;
-    using Models;
+    using Utilities;
     using ViewModels;
-    using Windows.UI.Core;
+    using Windows.UI.Xaml.Controls.Primitives;
 
     public enum SplitViewState
     {
@@ -120,6 +118,21 @@ namespace Podcasts
             this.RootFrame.Navigating += RootFrame_Navigating;
 
             this.RootFrame.Navigated += RootFrame_Navigated;
+
+            this.ViewModel.PropertyChanged += ViewModel_PropertyChanged;
+        }
+
+        private void ViewModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(ViewModel.CurrentPodcastPosition))
+            {
+                if (ViewModel.CurrentPodcastPosition.HasValue)
+                {
+                    CurrentPodcastSlider.ValueChanged -= CurrentPodcastSlider_ValueChanged;
+                    CurrentPodcastSlider.Value = (int)ViewModel.CurrentPodcastPosition.Value.TotalSeconds;
+                    CurrentPodcastSlider.ValueChanged += CurrentPodcastSlider_ValueChanged;
+                }
+            }
         }
 
         private void RootFrame_Navigated(object sender, NavigationEventArgs e)
@@ -171,6 +184,11 @@ namespace Podcasts
         private void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
         {
             throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
+        }
+
+        private void CurrentPodcastSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            ViewModel.ScrubTo(new TimeSpan(hours: 0, minutes: 0, seconds: (int)e.NewValue));
         }
     }
 }

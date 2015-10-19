@@ -4,7 +4,13 @@ using Windows.UI.Xaml.Data;
 
 namespace Podcasts.Converters
 {
-    public abstract class OneToOneConverter : IValueConverter
+    public interface IOneToOneConverter : IValueConverter
+    {
+        Type From { get; }
+        Type To { get; }
+    }
+
+    public abstract class OneToOneConverter : IOneToOneConverter
     {
         public Type From { get; private set; }
         public Type To { get; private set; }

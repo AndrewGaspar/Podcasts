@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Core;
+using Windows.Media.Playback;
+using Windows.UI.Core;
 
 namespace Podcasts.ViewModels
 {
     using Commands;
     using Transport;
+    using Utilities;
 
     public class AddPodcastCommand : CommandBase<string>
     {
@@ -76,9 +81,128 @@ namespace Podcasts.ViewModels
 
         public static AppViewModel Current { get; } = new AppViewModel(V1PodcastDatabase);
 
+        private TimeSpan? _duration, _position;
+
+        public TimeSpan? CurrentPodcastDuration
+        {
+            get
+            {
+                return _duration;
+            }
+            private set
+            {
+                _duration = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public bool IsSettingPodcastPosition
+        {
+            get; set;
+        }
+
+        public TimeSpan? CurrentPodcastPosition
+        {
+            get
+            {
+                return _position;
+            }
+            private set
+            {
+                _position = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private void UpdateMediaInfo(MediaPlayer player)
+        {
+            if (player.NaturalDuration == TimeSpan.MinValue)
+            {
+                CurrentPodcastDuration = null;
+                CurrentPodcastPosition = null;
+            }
+            else
+            {
+                CurrentPodcastDuration = player.NaturalDuration;
+
+                if (!IsSettingPodcastPosition)
+                {
+                    CurrentPodcastPosition = player.Position;
+                }
+            }
+        }
+
+        public SemaphoreSlim UpdatePositionMutex { get; } = new SemaphoreSlim(1, 1);
+
+        private bool IsPositionUpdateWorkItemRunning { get; set; }
+
+        private Task QueueUpdateWorkItem() =>
+            CoreApplication.MainView.CoreWindow.Dispatcher.RunIdleAsync(_ => PositionUpdateWorkItem()).AsTask();
+
+        private async void PositionUpdateWorkItem()
+        {
+            await UpdatePositionMutex.ExclusionRegionAsync(() =>
+            {
+                var player = BackgroundMediaPlayer.Current;
+
+                if (player != null)
+                {
+                    UpdateMediaInfo(player);
+                }
+
+                if (!IsPositionUpdateWorkItemRunning)
+                {
+                    return;
+                }
+            });
+
+            await Task.Delay(100);
+
+            await QueueUpdateWorkItem();
+        }
+
+        private Task RunPositionUpdateBackgroundItem() =>
+            UpdatePositionMutex.ExclusionRegionAsync(async () =>
+            {
+                if (IsPositionUpdateWorkItemRunning)
+                {
+                    return;
+                }
+
+                IsPositionUpdateWorkItemRunning = true;
+
+                await QueueUpdateWorkItem();
+            });
+
+        private void StopUpdateBackgroundItem() =>
+            UpdatePositionMutex.ExclusionRegionAsync(() =>
+            {
+                IsPositionUpdateWorkItemRunning = false;
+            });
+
+        public void ScrubTo(TimeSpan time)
+        {
+            BackgroundMediaPlayer.Current.Position = time;
+        }
+
         public AppViewModel(string databaseName)
         {
             AddPodcastCommand = new AddPodcastCommand(viewModel: this);
+
+            if (BackgroundMediaPlayer.Current != null)
+            {
+                UpdateMediaInfo(BackgroundMediaPlayer.Current);
+            }
+
+            BackgroundMediaPlayer.Current.MediaOpened += MediaOpened;
+        }
+
+        private async void MediaOpened(MediaPlayer sender, object args)
+        {
+            await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                RunPositionUpdateBackgroundItem();
+            });
         }
 
         private PodcastManager Manager = new PodcastManager(V1PodcastDatabase);
@@ -89,7 +213,7 @@ namespace Podcasts.ViewModels
 
         public AddPodcastCommand AddPodcastCommand { get; private set; }
 
-        public PodcastViewModel CurrentPodcast { get; private set; }
+        public EpisodeViewModel CurrentEpisode { get; private set; }
 
         private bool _isInitializing = false;
 
