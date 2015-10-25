@@ -7,9 +7,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel>
-        <TextBlock Style="{StaticResource HeaderTextBlockStyle}">Podcasts</TextBlock>
-        <GridView Name="PodcastGridView" ItemsSource="{Binding ViewModel.Podcasts}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Grid.Row="0">Podcasts</TextBlock>
+        <GridView Name="PodcastGridView" ItemsSource="{Binding ViewModel.Podcasts}" Grid.Row="1">
             <GridView.ItemTemplate>
                 <DataTemplate>
                     <Button Background="Transparent"
@@ -23,5 +27,5 @@
                 </DataTemplate>
             </GridView.ItemTemplate>
         </GridView>
-    </StackPanel>
+    </Grid>
 </Page>
