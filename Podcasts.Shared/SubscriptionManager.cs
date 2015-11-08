@@ -122,5 +122,16 @@ namespace Podcasts
             
             return await AddNewSubscriptionToDbAsync(new Subscription { LocationHref = podcastUri.ToString() }, results.Feed);
         }
+
+        public async Task DeleteSubscriptionAsync(SubscriptionModel model)
+        {
+            await InitializeAsync();
+
+            await MobileService.Current.SubscriptionsTable.DeleteAsync(model.Subscription);
+
+            MobileService.Current.SyncAsync().Ignore();
+
+            Subscriptions.Remove(model);
+        }
     }
 }

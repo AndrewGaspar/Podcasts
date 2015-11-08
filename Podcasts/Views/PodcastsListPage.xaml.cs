@@ -6,6 +6,8 @@ namespace Podcasts.Views
 {
     using Models;
     using ViewModels;
+    using Windows.UI.Xaml;
+    using Windows.UI.Xaml.Controls.Primitives;
     using Windows.UI.Xaml.Navigation;
 
     /// <summary>
@@ -30,6 +32,13 @@ namespace Podcasts.Views
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             await SubscriptionManager.Current.RefreshAsync();
+        }
+
+        private void Subscription_RightTapped(object sender, Windows.UI.Xaml.Input.RightTappedRoutedEventArgs e)
+        {
+            FlyoutBase.ShowAttachedFlyout((FrameworkElement)sender);
+
+            e.Handled = true;
         }
     }
 }
