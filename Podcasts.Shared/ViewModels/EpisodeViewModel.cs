@@ -60,6 +60,16 @@ namespace Podcasts.ViewModels
             Title = item.Title;
             Image = item.ITunes?.Image?.Href;
             Source = item.Enclosure.Url;
+            
+            var duration = item.ITunes?.Duration;
+            if(duration == null || duration?.Ticks == 0)
+            {
+                Duration = null;
+            }
+            else
+            {
+                Duration = duration;
+            }
         }
 
         private Task<TimeSpan?> GetDurationAsync(CancellationToken token)

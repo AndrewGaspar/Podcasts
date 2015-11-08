@@ -113,8 +113,10 @@
     <Compile Include="Dom\YesEnum.cs" />
     <Compile Include="Exceptions\DuplicatePodcastException.cs" />
     <Compile Include="Exceptions\InvalidPodcastException.cs" />
-    <Compile Include="PodcastManager.cs" />
+    <Compile Include="Models\SubscriptionModel.cs" />
+    <Compile Include="SubscriptionManager.cs" />
     <Compile Include="PropertyChangeBase.cs" />
+    <Compile Include="Services\MobileService.cs" />
     <Compile Include="Transport\BackgroundMessageTransport.cs" />
     <Compile Include="Dom\EnclosureNode.cs" />
     <Compile Include="Dom\Helpers.cs" />
@@ -122,6 +124,7 @@
     <Compile Include="Dom\PodcastFeedItem.cs" />
     <Compile Include="Dom\XmlNodeHost.cs" />
     <Compile Include="Transport\ForeroundMessageTransport.cs" />
+    <Compile Include="Utilities\AuthenticationHelpers.cs" />
     <Compile Include="Utilities\JsonHelper.cs" />
     <Compile Include="Storage\JsonObjectsFile.cs" />
     <Compile Include="Messages\PlayEpisodeRequest.cs" />
@@ -140,6 +143,7 @@
     <Compile Include="ViewModels\AppViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\EpisodeViewModel.cs" />
+    <Compile Include="ViewModels\PodcastListViewModel.cs" />
     <Compile Include="ViewModels\PodcastViewModel.cs" />
     <Content Include="Properties\PodcastsService.rd.xml" />
   </ItemGroup>
@@ -147,6 +151,10 @@
     <ProjectReference Include="..\MediaFoundation\MediaFoundation\MediaFoundation.csproj">
       <Project>{539bc81f-72b3-4ebf-bf70-3b1c86428d34}</Project>
       <Name>MediaFoundation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Podcasts.DataObjects\Podcasts.DataObjects.csproj">
+      <Project>{cbeb0465-a3f8-474f-ab3b-491079abb8d7}</Project>
+      <Name>Podcasts.DataObjects</Name>
     </ProjectReference>
     <ProjectReference Include="..\Podcasts.PlatformIndependent\Podcasts.PlatformIndependent.csproj">
       <Project>{89c39d43-4d5a-4154-adc1-bfa74dd7a81a}</Project>

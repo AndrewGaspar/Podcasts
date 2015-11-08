@@ -7,7 +7,7 @@ namespace Podcasts.Tests
     [TestClass]
     public class PodcastManagerTests
     {
-        private PodcastManager Manager = new PodcastManager("test-podcasts.json-db");
+        private SubscriptionManager Manager = new SubscriptionManager("test-podcasts.json-db");
 
         [TestInitialize]
         public async Task InitializeAsync()
@@ -20,7 +20,7 @@ namespace Podcasts.Tests
         {
             var uri = TestFeeds.GetFeedUri("beastcast.xml");
 
-            var beastcast = await Manager.AddPodcastAsync(uri);
+            var beastcast = await Manager.AddSubscriptionAsync(uri);
 
             Assert.AreNotEqual(Guid.Empty, beastcast.Id);
             Assert.AreEqual("The Giant Beastcast", beastcast.Title);

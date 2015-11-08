@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.WindowsAzure.MobileServices;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -11,6 +12,7 @@ using Windows.UI.Core;
 namespace Podcasts.ViewModels
 {
     using Commands;
+    using Services;
     using Transport;
     using Utilities;
 
@@ -204,8 +206,7 @@ namespace Podcasts.ViewModels
                 RunPositionUpdateBackgroundItem();
             });
         }
-
-        private PodcastManager Manager = new PodcastManager(V1PodcastDatabase);
+        
         internal ForeroundMessageTransport Transport { get; } = new ForeroundMessageTransport();
 
         private ObservableCollection<PodcastViewModel> _podcasts = new ObservableCollection<PodcastViewModel>();
@@ -256,9 +257,9 @@ namespace Podcasts.ViewModels
 
             try
             {
-                var podcasts = await Manager.GetPodcastsAsync().ConfigureAwait(false);
-
-                AppendPodcastsToList(from podcast in podcasts select new PodcastViewModel(Manager, podcast));
+                await SubscriptionManager.Current.InitializeAsync();
+                
+                AppendPodcastsToList(from sub in SubscriptionManager.Current.Subscriptions select new PodcastViewModel(sub));
             }
             finally
             {
@@ -267,19 +268,12 @@ namespace Podcasts.ViewModels
             }
         }
 
-        public async Task ClearAsync()
-        {
-            await Manager.ClearDatabaseAsync().ConfigureAwait(false);
-
-            Podcasts.Clear();
-        }
-
         public async Task AddPodcastAsync(Uri url)
         {
             // No ConfigureAwait(false) here because AppendPodcastToList must invoke on the UI thread
-            var podcast = await Manager.AddPodcastAsync(url);
+            var podcast = await SubscriptionManager.Current.AddSubscriptionAsync(url);
 
-            AppendPodcastToList(new PodcastViewModel(Manager, podcast));
+            //await SubscriptionManager.Current.RefreshAsync();
         }
     }
 }

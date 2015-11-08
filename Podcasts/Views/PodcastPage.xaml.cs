@@ -5,6 +5,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Podcasts.Views
 {
+    using Models;
     using System.Diagnostics;
     using ViewModels;
     using Windows.UI.Xaml.Input;
@@ -25,7 +26,7 @@ namespace Podcasts.Views
         {
             base.OnNavigatedTo(e);
 
-            ViewModel = e.Parameter as PodcastViewModel;
+            ViewModel = new PodcastViewModel(e.Parameter as SubscriptionModel);
 
             Debug.Assert(ViewModel != null);
 

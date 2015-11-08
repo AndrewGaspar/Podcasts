@@ -13,7 +13,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Grid.Row="0">Podcasts</TextBlock>
-        <GridView Name="PodcastGridView" ItemsSource="{Binding ViewModel.Podcasts}" Grid.Row="1">
+        <GridView Name="PodcastGridView" ItemsSource="{Binding ViewModel.Subscriptions}" Grid.Row="1">
             <GridView.ItemTemplate>
                 <DataTemplate>
                     <Button Background="Transparent"

@@ -135,7 +135,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Podcasts.Shared\Podcasts.Shared.csproj">
       <Project>{f0676cb7-f699-42f2-bed8-a09e83cef3bc}</Project>
-      <Name>Podcasts.Shared</Name>
+      <Name>Podcasts.UAP.Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -118,6 +118,7 @@
     <None Include="Podcasts_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Package.StoreAssociation.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -156,10 +157,14 @@
     </ProjectReference>
     <ProjectReference Include="..\Podcasts.Shared\Podcasts.Shared.csproj">
       <Project>{f0676cb7-f699-42f2-bed8-a09e83cef3bc}</Project>
-      <Name>Podcasts.Shared</Name>
+      <Name>Podcasts.UAP.Shared</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <SDKReference Include="SQLite.UAP.2015, Version=3.9.1">
+      <Name>SQLite for Universal App Platform</Name>
+    </SDKReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

@@ -9,6 +9,7 @@ namespace Podcasts.ViewModels
     using Models;
     using Commands;
     using Utilities;
+    using DataObjects;
 
     public class EpisodeList : IncrementalLoadingCollection<EpisodeViewModel>
     {
@@ -44,9 +45,7 @@ namespace Podcasts.ViewModels
 
     public class PodcastViewModel : BaseViewModel
     {
-        private Podcast Podcast;
-        private PodcastManager Manager;
-        internal PodcastFeed Feed;
+        private SubscriptionModel Model;
 
         private EpisodeList _episodes;
 
@@ -63,21 +62,20 @@ namespace Podcasts.ViewModels
             }
         }
 
-        internal PodcastViewModel(PodcastManager manager, Podcast podcast)
+        public PodcastViewModel(SubscriptionModel subscriptionModel)
         {
-            if (podcast.Id == Guid.Empty)
+            if (subscriptionModel.Subscription.Id == null || subscriptionModel.Subscription.Id == "")
             {
-                throw new ArgumentException("Podcast must have an id!", nameof(podcast));
+                throw new ArgumentException("Subscription must have an id!", nameof(subscriptionModel));
             }
-
-            Manager = manager;
-            Podcast = podcast;
+            
+            Model = subscriptionModel;
             PlayEpisode = new PlayEpisodeCommand(this);
         }
 
-        public string Title => Podcast.Title;
+        public string Title => Model.Title;
 
-        public Uri Image => Podcast.Image;
+        public Uri Image => Model.Image;
 
         private bool _isRefreshing = false;
 
@@ -100,9 +98,9 @@ namespace Podcasts.ViewModels
 
             try
             {
-                Feed = await Manager.GetPodcastFeedAsync(Podcast);
+                await Model.InitializeAsync();
 
-                Episodes = new EpisodeList(Feed);
+                Episodes = new EpisodeList(Model.Feed);
             }
             finally
             {

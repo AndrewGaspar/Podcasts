@@ -1,11 +1,26 @@
-﻿using Windows.ApplicationModel;
+﻿using System;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.WindowsAzure.MobileServices;
+using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.Security.Authentication.OnlineId;
 using Windows.UI.Xaml;
 
 namespace Podcasts
 {
     using Transport;
     using ViewModels;
+    using Windows.ApplicationModel.UserDataAccounts;
+    using Windows.Security.Credentials;
+    using Windows.UI.Popups;
+
+    class Subscription
+    {
+        public string Id { get; set; }
+        public string UserId { get; set; }
+        public string LocationHref { get; set; }
+    }
 
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
@@ -15,7 +30,7 @@ namespace Podcasts
         private AppViewModel AppViewModel = AppViewModel.Current;
 
         public AppViewModel ViewModel => AppViewModel;
-
+        
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
