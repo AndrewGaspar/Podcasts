@@ -4,3 +4,6 @@
 [submodule "MediaFoundation"]
 	path = MediaFoundation
 	url = git@github.com:AndrewGaspar/MediaFoundation.git
+[submodule "Podcasts.Dom"]
+	path = Podcasts.Dom
+	url = git@github.com:AndrewGaspar/Podcasts.Dom.git

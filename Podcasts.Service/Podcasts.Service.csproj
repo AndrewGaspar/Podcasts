@@ -252,6 +252,10 @@
     <None Include="Properties\PublishProfiles\mobile-podcast-pelican.pubxml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Podcasts.Dom\Podcasts.Dom\Podcasts.Dom.csproj">
+      <Project>{ef63c4e6-b4ab-4d57-83cd-c09c914bbde4}</Project>
+      <Name>Podcasts.Dom</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Podcasts.DataObjects\Podcasts.DataObjects.csproj">
       <Project>{cbeb0465-a3f8-474f-ab3b-491079abb8d7}</Project>
       <Name>Podcasts.DataObjects</Name>

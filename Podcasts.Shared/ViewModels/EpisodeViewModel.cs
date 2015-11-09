@@ -56,7 +56,7 @@ namespace Podcasts.ViewModels
 
         public EpisodeViewModel(PodcastFeedItem item)
         {
-            Guid = item.Guid;
+            Guid = item.Guid.Value;
             Title = item.Title;
             Image = item.ITunes?.Image?.Href;
             Source = item.Enclosure.Url;
