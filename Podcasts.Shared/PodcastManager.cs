@@ -6,6 +6,7 @@ using Podcasts.Dom;
 using Podcasts.Exceptions;
 using Podcasts.Models;
 using Podcasts.Storage;
+using Podcasts.Service;
 
 namespace Podcasts
 {
@@ -106,6 +107,11 @@ namespace Podcasts
             };
 
             await SaveNewPodcastToFileAsync(podcast);
+
+            using (var subscription = new SubscriptionService(new Uri("http://localhost:3333"), new BasicAuthStrategy("my_user", "password")))
+            {
+                await subscription.PostSubscriptionAsync(podcast.Location.AbsoluteUri);
+            }
 
             return podcast;
         }

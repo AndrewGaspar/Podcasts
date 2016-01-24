@@ -113,8 +113,14 @@
     <Compile Include="Dom\YesEnum.cs" />
     <Compile Include="Exceptions\DuplicatePodcastException.cs" />
     <Compile Include="Exceptions\InvalidPodcastException.cs" />
+    <Compile Include="Service\Models\Podcast.cs" />
+    <Compile Include="Service\Models\Subscription.cs" />
     <Compile Include="PodcastManager.cs" />
     <Compile Include="PropertyChangeBase.cs" />
+    <Compile Include="Service\BasicAuthStrategy.cs" />
+    <Compile Include="Service\IAuthStrategy.cs" />
+    <Compile Include="Service\SubscriptionService.cs" />
+    <Compile Include="Service\Requests\SubscriptionRequest.cs" />
     <Compile Include="Transport\BackgroundMessageTransport.cs" />
     <Compile Include="Dom\EnclosureNode.cs" />
     <Compile Include="Dom\Helpers.cs" />
